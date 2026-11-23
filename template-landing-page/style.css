@@ -225,3 +225,26 @@ h2 { font-size: clamp(39px, 4.5vw, 55px); line-height: 1.08; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
 }
+
+.process-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 13px;}
+.process-card { display: flex; flex-direction: column; min-height: 170px; padding: 22px; border: 1px solid var(--line);}
+.process-card-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 15px;}
+.process-card-icon { font-size: 20px;}
+.process-card-number { font-size: 9px; letter-spacing:.12em; color: var(--muted);}
+.portfolio-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 13px;}
+.portfolio-card { display: flex; flex-direction: column; min-height: 200px; padding: 22px; border: 1px solid var(--line);}
+.portfolio-icon { font-size: 22px; margin-bottom: 14px;}
+.portfolio-category { margin-bottom: 6px; color: var(--accent); font-size: 9px; letter-spacing:.12em; text-transform: uppercase;}
+.portfolio-card h3 { font-family: var(--serif); font-size: 19px; margin-bottom: 8px;}
+.portfolio-description { color: var(--muted); font-size: 14px; line-height: 1.6;}
+.comparison-wrap { overflow-x: auto; border: 1px solid var(--line);}
+.comparison-table { width: 100%; border-collapse: collapse; font-size: 14px;}
+.comparison-table th,.comparison-table td { padding: 13px 14px; border-bottom: 1px solid var(--line); text-align: center;}
+.comparison-table th.comparison-feature,.comparison-table td.comparison-feature { text-align: left;}
+.comparison-package-name { display: block; font-family: var(--serif); font-size: 17px;}
+.comparison-package-price { display: block; margin-top: 3px; color: var(--muted); font-size: 13px;}
+.comparison-value.is-included { color: var(--primary); font-weight: 700;}
+@media (max-width: 700px) {
+.process-grid { grid-template-columns: repeat(2, 1fr);}
+.portfolio-grid { grid-template-columns: 1fr;}
+}

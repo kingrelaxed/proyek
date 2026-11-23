@@ -235,7 +235,175 @@ const BUSINESS_CONFIG = {
         id: "Kami menerima transfer bank dan pembayaran digital. Detail pembayaran akan dikonfirmasi saat pemesanan.",
       },
     },
+    {
+      question: {
+        en: "How long does it take to get started?",
+        id: "Berapa lama proses memulainya?",
+      },
+      answer: {
+        en: "Most projects start within a few days of your first message. We will share a clear timeline before we begin.",
+        id: "Kebanyakan proyek dimulai dalam beberapa hari setelah pesan pertamamu. Kami akan membagikan jadwal yang jelas sebelum mulai.",
+      },
+    },
+    {
+      question: {
+        en: "Can I change my package later?",
+        id: "Bisakah saya ganti paket di tengah jalan?",
+      },
+      answer: {
+        en: "Yes. You can upgrade anytime and only pay the difference.",
+        id: "Bisa. Kamu bisa naik paket kapan saja dan hanya membayar selisihnya.",
+      },
+    },
+    {
+      question: {
+        en: "Do you offer a refund?",
+        id: "Apakah ada jaminan refund?",
+      },
+      answer: {
+        en: "If we have not started your project yet, you can cancel for a full refund. Just tell us within 7 days.",
+        id: "Jika proyekmu belum dimulai, kamu bisa membatalkan dan mendapat refund penuh. Beri tahu kami dalam 7 hari.",
+      },
+    },
+    {
+      question: {
+        en: "Can I see examples before I decide?",
+        id: "Bisakah saya melihat contoh sebelum memutuskan?",
+      },
+      answer: {
+        en: "Yes. Take a look at our portfolio below, or ask us for examples in your field.",
+        id: "Bisa. Lihat portofolio kami di bawah, atau minta contoh di bidangmu.",
+      },
+    },
   ],
+ process: [
+    {
+      icon: "✉",
+      title: { en: "Say hello", id: "Sapa kami" },
+      description: {
+        en: "Tell us what you need in one short message.",
+        id: "Ceritakan kebutuhanmu lewat satu pesan singkat.",
+      },
+    },
+    {
+      icon: "✎",
+      title: { en: "Get a plan", id: "Dapatkan rencana" },
+      description: {
+        en: "We recommend the right package and a clear next step.",
+        id: "Kami merekomendasikan paket yang tepat dan langkah berikutnya yang jelas.",
+      },
+    },
+    {
+      icon: "⚙",
+      title: { en: "We do the work", id: "Kami kerjakan" },
+      description: {
+        en: "Relax while our team handles the details with care.",
+        id: "Santai saja sementara tim kami mengerjakan semuanya dengan hati-hati.",
+      },
+    },
+    {
+      icon: "★",
+      title: { en: "Enjoy the result", id: "Nikmati hasilnya" },
+      description: {
+        en: "Review the result together and share it with the world.",
+        id: "Tinjau hasilnya bersama kami lalu bagikan ke dunia.",
+      },
+    },
+],
+ portfolio: [
+    {
+      icon: "❿",
+      title: { en: "A fresh start for a local cafe", id: "Awal baru untuk kafe lokal" },
+      category: { en: "Branding", id: "Branding" },
+      description: {
+        en: "A new look, a new menu, and a calmer morning rush.",
+        id: "Tampilan baru, menu baru, dan pagi yang lebih tenang.",
+      },
+    },
+    {
+      icon: "▣",
+      title: { en: "A simple shop, ready to sell", id: "Toko sederhana, siap berjualan" },
+      category: { en: "Online store", id: "Toko online" },
+      description: {
+        en: "Products, prices, and checkout in one easy page.",
+        id: "Produk, harga, dan checkout dalam satu halaman mudah.",
+      },
+    },
+    {
+      icon: "◈",
+      title: { en: "A portfolio that gets replies", id: "Portofolio yang dibalas klien" },
+      category: { en: "Portfolio", id: "Portofolio" },
+      description: {
+        en: "Work samples that show the craft, not just the tools.",
+        id: "Contoh karya yang menunjukkan keahlian, bukan sekadar alat.",
+      },
+    },
+    {
+      icon: "✦",
+      title: { en: "A booking page that books itself", id: "Halaman booking yang bekerja sendiri" },
+      category: { en: "Booking", id: "Pemesanan" },
+      description: {
+        en: "Guests pick a time, we handle the rest.",
+        id: "Tamu memilih waktu, kami yang mengurus sisanya.",
+      },
+    },
+    {
+      icon: "❖",
+      title: { en: "A launch page for a new idea", id: "Halaman peluncuran ide baru" },
+      category: { en: "Launch", id: "Peluncuran" },
+      description: {
+        en: "One page, one message, and a clear next step.",
+        id: "Satu halaman, satu pesan, dan langkah berikutnya yang jelas.",
+      },
+    },
+    {
+      icon: "✜",
+      title: { en: "A small business, looking big", id: "Usaha kecil yang terlihat besar" },
+      category: { en: "Business", id: "Bisnis" },
+      description: {
+        en: "A professional home online for a growing team.",
+        id: "Rumah online yang profesional untuk tim yang sedang tumbuh.",
+      },
+    },
+],
+ comparison: [
+    {
+      label: { en: "Core service", id: "Layanan inti" },
+      values: [true, true, true],
+    },
+    {
+      label: { en: "Initial consultation", id: "Konsultasi awal" },
+      values: [true, true, true],
+    },
+    {
+      label: { en: "WhatsApp support", id: "Dukungan via WhatsApp" },
+      values: [true, true, true],
+    },
+    {
+      label: { en: "Personal guidance", id: "Pendampingan personal" },
+      values: [false, true, true],
+    },
+    {
+      label: { en: "Priority service", id: "Prioritas layanan" },
+      values: [false, true, true],
+    },
+    {
+      label: { en: "Progress review", id: "Evaluasi hasil" },
+      values: [false, true, true],
+    },
+    {
+      label: { en: "Extended service", id: "Layanan lanjutan" },
+      values: [false, false, true],
+    },
+    {
+      label: { en: "More hands-on guidance", id: "Pendampingan intensif" },
+      values: [false, false, true],
+    },
+    {
+      label: { en: "Priority support", id: "Dukungan prioritas" },
+      values: [false, false, true],
+    },
+],
 };
 
 let currentLanguage = "en";
@@ -449,6 +617,75 @@ function renderFaqs() {
   });
 }
 
+function renderProcess() {
+ const list = document.querySelector("#process-list");
+ if (!list) return;
+ list.replaceChildren();
+ BUSINESS_CONFIG.process.forEach((step, index) => {
+  const card = createElement("article", "process-card");
+  const top = createElement("div", "process-card-top");
+  const icon = createElement("span", "process-card-icon", step.icon);
+  const number = createElement("span", "process-card-number");
+  number.textContent = "0" + (index + 1) + (currentLanguage === "en" ? " / STEP" : " / LANGKAH");
+  top.append(icon, number);
+  const title = createElement("h3");
+  setLocalizedText(title, step.title);
+  const desc = createElement("p");
+  setLocalizedText(desc, step.description);
+  card.append(top, title, desc);
+  list.append(card);
+ });
+}
+function renderPortfolio() {
+ const grid = document.querySelector("#portfolio-grid");
+ if (!grid) return;
+ grid.replaceChildren();
+ BUSINESS_CONFIG.portfolio.forEach((item) => {
+  const card = createElement("article", "portfolio-card");
+  const icon = createElement("span", "portfolio-icon", item.icon);
+  const category = createElement("p", "portfolio-category");
+  setLocalizedText(category, item.category);
+  const title = createElement("h3");
+  setLocalizedText(title, item.title);
+  const desc = createElement("p", "portfolio-description");
+  setLocalizedText(desc, item.description);
+  card.append(icon, category, title, desc);
+  grid.append(card);
+ });
+}
+function renderComparison() {
+ const wrap = document.querySelector("#comparison-table");
+ if (!wrap) return;
+ wrap.replaceChildren();
+ const table = createElement("table", "comparison-table");
+ const head = createElement("thead");
+ const headRow = createElement("tr");
+ headRow.append(createElement("th", "comparison-feature"));
+ BUSINESS_CONFIG.packages.forEach((pack) => {
+  const th = createElement("th", "comparison-package");
+  const name = createElement("span", "comparison-package-name");
+  setLocalizedText(name, pack.name);
+  const price = createElement("span", "comparison-package-price", formatPrice(pack.price));
+  th.append(name, price);
+  headRow.append(th);
+ });
+ head.append(headRow);
+ const body = createElement("tbody");
+ BUSINESS_CONFIG.comparison.forEach((row) => {
+  const tr = createElement("tr");
+  const feature = createElement("td", "comparison-feature");
+  setLocalizedText(feature, row.label);
+  tr.append(feature);
+  row.values.forEach((value) => {
+   const td = createElement("td", "comparison-value", value ? "✓" : "—");
+   if (value) td.classList.add("is-included");
+   tr.append(td);
+  });
+  body.append(tr);
+ });
+ table.append(head, body);
+ wrap.append(table);
+}
 function setLanguage(language) {
   currentLanguage = language;
   document.documentElement.lang = language;
@@ -456,6 +693,9 @@ function setLanguage(language) {
   renderFeatures();
   renderServices();
   renderPackages();
+ renderProcess();
+ renderPortfolio();
+ renderComparison();
   renderTestimonials();
   renderFaqs();
 
