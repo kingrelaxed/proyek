@@ -1,0 +1,952 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="description" content="Download video TikTok tanpa watermark dalam kualitas Full HD 1080p. Tempel link, lewati iklan pop-up singkat, lalu unduh file HD-nya." />
+    <link rel="icon" href="data:," />
+    <title>TikTok Downloader Tanpa Watermark — Download HD 1080p</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --bg: #f6f6f4;
+        --bg-raise: #ffffff;
+        --bg-sink: #ececea;
+        --ink: #101014;
+        --ink-2: #3c3c44;
+        --ink-3: #6d6d76;
+        --line: #dddcd6;
+        --cyan: #0fbdb4;
+        --cyan-bright: #25f4ee;
+        --red: #fe2c55;
+        --red-dark: #e02347;
+        --gold: #b97e0c;
+        --gold-bg: #fdf3dd;
+        --ok: #12805c;
+        --shadow: 0 18px 44px rgba(16, 16, 20, 0.12);
+        --radius: 18px;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #0b0b0e;
+          --bg-raise: #15151a;
+          --bg-sink: #1d1d24;
+          --ink: #f4f4f6;
+          --ink-2: #c6c6cd;
+          --ink-3: #8f8f99;
+          --line: #2a2a33;
+          --cyan: #25f4ee;
+          --gold: #f5c04e;
+          --gold-bg: #2b2110;
+          --ok: #3ecf9a;
+          --shadow: 0 18px 44px rgba(0, 0, 0, 0.55);
+        }
+      }
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+        line-height: 1.55;
+        -webkit-font-smoothing: antialiased;
+      }
+      button, [role="button"], select, summary, input:not([type="checkbox"], [type="radio"]) { min-height: 2.25rem; }
+      button { font: inherit; cursor: pointer; }
+      a { color: inherit; }
+      .wrap { max-width: 1060px; margin: 0 auto; padding: 0 20px; }
+
+      /* ---------- Hero / tool ---------- */
+      .hero {
+        background: #0b0b0e;
+        color: #f4f4f6;
+        padding: 56px 0 64px;
+        position: relative;
+        overflow: hidden;
+      }
+      .hero::before, .hero::after {
+        content: "";
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(70px);
+        opacity: 0.35;
+        pointer-events: none;
+      }
+      .hero::before { width: 340px; height: 340px; background: #0e7c78; top: -140px; left: -80px; }
+      .hero::after { width: 300px; height: 300px; background: #8f1230; bottom: -150px; right: -60px; }
+      .hero .wrap { position: relative; z-index: 1; }
+      .hero h1 {
+        font-size: clamp(2rem, 6vw, 3.4rem);
+        line-height: 1.08;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        margin: 0 0 14px;
+        max-width: 16ch;
+      }
+      .hero h1 .nw {
+        color: #0b0b0e;
+        background: var(--cyan-bright);
+        padding: 0 0.18em;
+        border-radius: 6px;
+        box-decoration-break: clone;
+        -webkit-box-decoration-break: clone;
+      }
+      .hero p.lede { color: #b9b9c2; font-size: clamp(1rem, 2.4vw, 1.15rem); max-width: 56ch; margin: 0 0 30px; }
+      .hero p.lede strong { color: #fff; }
+
+      .tool {
+        background: #15151a;
+        border: 1px solid #2a2a33;
+        border-radius: var(--radius);
+        padding: 18px;
+        box-shadow: 0 24px 60px rgba(0,0,0,.5);
+      }
+      .tool label { display: block; font-weight: 700; font-size: 0.9rem; margin-bottom: 10px; color: #e8e8ec; }
+      .input-row { display: flex; gap: 10px; flex-wrap: wrap; }
+      .input-row input {
+        flex: 1 1 260px;
+        background: #0b0b0e;
+        border: 1.5px solid #33333d;
+        border-radius: 12px;
+        color: #fff;
+        padding: 12px 14px;
+        font-size: 1rem;
+        min-height: 52px;
+        outline: none;
+      }
+      .input-row input:focus { border-color: var(--cyan-bright); }
+      .input-row input::placeholder { color: #6d6d76; }
+      .btn {
+        border: 0;
+        border-radius: 12px;
+        font-weight: 800;
+        padding: 10px 22px;
+        min-height: 52px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        font-size: 1rem;
+        transition: transform .12s ease, background .12s ease, opacity .12s ease;
+      }
+      .btn:active { transform: scale(.97); }
+      .btn-go { background: var(--red); color: #fff; }
+      .btn-go:hover { background: var(--red-dark); }
+      .btn-ghost { background: #23232b; color: #e8e8ec; border: 1px solid #3a3a45; }
+      .btn-ghost:hover { background: #2b2b35; }
+      .btn[disabled] { opacity: .55; cursor: wait; }
+      .hint { color: #8f8f99; font-size: .85rem; margin: 12px 2px 0; }
+      .hint button { background: none; border: 0; color: var(--cyan-bright); font-weight: 700; padding: 4px 2px; min-height: 36px; text-decoration: underline; }
+      .demo-banner {
+        display: flex; gap: 10px; align-items: flex-start;
+        background: #2b2110; border: 1px solid #6b5316; color: #f5d98b;
+        border-radius: 10px; padding: 10px 14px; font-size: .88rem; margin-bottom: 16px;
+      }
+      .demo-banner .tag {
+        flex: 0 0 auto; background: #f5c04e; color: #241a02; font-weight: 800; font-size: .7rem;
+        letter-spacing: .06em; padding: 3px 8px; border-radius: 6px; margin-top: 1px;
+      }
+      .demo-banner p { margin: 0; }
+      .demo-banner strong { color: #ffe9ad; }
+      .error {
+        display: none;
+        margin-top: 12px;
+        background: #3a0f1c;
+        border: 1px solid #7c1d38;
+        color: #ffb3c2;
+        border-radius: 10px;
+        padding: 10px 14px;
+        font-size: .92rem;
+        font-weight: 600;
+      }
+      .error.show { display: block; }
+
+      .progress { display: none; margin-top: 18px; }
+      .progress.show { display: block; }
+      .progress .bar { height: 8px; background: #26262e; border-radius: 99px; overflow: hidden; }
+      .progress .bar i { display: block; height: 100%; width: 0%; background: var(--cyan-bright); border-radius: 99px; transition: width .3s ease; }
+      .progress .step { color: #a7a7b1; font-size: .88rem; margin-top: 8px; font-weight: 600; }
+
+      /* ---------- Result ---------- */
+      .result { display: none; margin-top: 20px; background: #101014; border: 1px solid #2a2a33; border-radius: var(--radius); padding: 18px; }
+      .result.show { display: block; }
+      .result-head { display: flex; gap: 16px; flex-wrap: wrap; }
+      .thumb {
+        width: 108px; height: 152px; flex: 0 0 auto;
+        border-radius: 12px;
+        background: #1d1d24;
+        border: 1px solid #33333d;
+        display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;
+        color: #8f8f99; font-size: .72rem; font-weight: 700; text-align: center; padding: 10px;
+      }
+      .thumb svg { width: 34px; height: 34px; }
+      .result-meta { flex: 1 1 220px; min-width: 0; }
+      .result-meta .author { font-weight: 800; font-size: 1.05rem; color: #fff; word-break: break-all; }
+      .result-meta .desc { color: #a7a7b1; font-size: .92rem; margin: 4px 0 10px; }
+      .chips { display: flex; gap: 8px; flex-wrap: wrap; }
+      .chip { font-family: "JetBrains Mono", monospace; font-size: .74rem; font-weight: 700; background: #1d1d24; border: 1px solid #33333d; color: #c6c6cd; padding: 4px 10px; border-radius: 99px; }
+      .chip.hot { color: #0b0b0e; background: var(--cyan-bright); border-color: var(--cyan-bright); }
+
+      .quality-list { margin-top: 18px; display: grid; gap: 10px; }
+      .quality {
+        display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+        background: #17171d; border: 1px solid #2c2c36; border-radius: 12px; padding: 12px 14px;
+      }
+      .quality .q-name { font-weight: 800; color: #fff; font-size: 1rem; }
+      .quality .q-sub { color: #8f8f99; font-size: .82rem; font-family: "JetBrains Mono", monospace; }
+      .quality .q-info { flex: 1 1 140px; min-width: 0; }
+      .badge-ad {
+        font-size: .72rem; font-weight: 800; letter-spacing: .04em; text-transform: uppercase;
+        padding: 4px 9px; border-radius: 99px; white-space: nowrap;
+        background: var(--gold-bg); color: var(--gold); border: 1px solid #6b5316;
+      }
+      @media (prefers-color-scheme: light) { .badge-ad { border-color: #e3c87e; } }
+      .btn-dl { background: var(--cyan-bright); color: #06231f; min-height: 46px; padding: 8px 18px; font-size: .95rem; }
+      .btn-dl:hover { background: #5ff7f1; }
+      .btn-dl.locked { background: #2b2b35; color: #f5c04e; border: 1px solid #4d3d12; }
+      .btn-dl.unlocked { background: var(--red); color: #fff; }
+      .demo-note {
+        display: none; margin-top: 14px; border-radius: 10px; padding: 12px 14px;
+        background: #122b29; border: 1px solid #1d5c54; color: #a9e8e2; font-size: .92rem;
+      }
+      .demo-note.show { display: block; }
+      .demo-note strong { color: #fff; }
+      .demo-note .dl-bar { height: 8px; background: #0b2c28; border-radius: 99px; overflow: hidden; margin: 10px 0 4px; }
+      .demo-note .dl-bar i { display: block; height: 100%; width: 0%; background: var(--cyan-bright); border-radius: 99px; transition: width .2s ease; }
+      .demo-note .dl-pct { font-family: "JetBrains Mono", monospace; font-size: .8rem; color: #a9e8e2; }
+      .demo-note a.fallback-link {
+        display: inline-flex; align-items: center; justify-content: center; min-height: 46px;
+        margin-top: 10px; padding: 10px 18px; border-radius: 10px;
+        background: var(--red); color: #fff; font-weight: 800; text-decoration: none;
+      }
+
+      /* ---------- Ad slots ---------- */
+      .ad-slot {
+        border: 1.5px dashed var(--line);
+        border-radius: 12px;
+        background: var(--bg-sink);
+        color: var(--ink-3);
+        text-align: center;
+        padding: 22px 16px;
+        margin: 26px 0;
+      }
+      .ad-slot .ad-tag { font-size: .68rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; display: block; margin-bottom: 6px; }
+      .ad-slot .ad-size { font-family: "JetBrains Mono", monospace; font-size: .8rem; }
+
+      /* ---------- Sections ---------- */
+      section.block { padding: 54px 0 8px; }
+      section.block h2 { font-size: clamp(1.5rem, 4vw, 2rem); font-weight: 800; letter-spacing: -0.015em; margin: 0 0 8px; }
+      section.block .sub { color: var(--ink-2); max-width: 62ch; margin: 0 0 26px; }
+      .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 14px; }
+      .step-card { background: var(--bg-raise); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px; }
+      .step-card .num {
+        font-family: "JetBrains Mono", monospace; font-weight: 700; font-size: .85rem;
+        width: 38px; height: 38px; border-radius: 10px; display: flex; align-items: center; justify-content: center;
+        background: var(--ink); color: var(--bg); margin-bottom: 12px;
+      }
+      .step-card h3 { margin: 0 0 6px; font-size: 1.05rem; }
+      .step-card p { margin: 0; color: var(--ink-2); font-size: .94rem; }
+
+      .feat { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 14px; }
+      .feat-card { background: var(--bg-raise); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px; }
+      .feat-card svg { width: 26px; height: 26px; margin-bottom: 10px; }
+      .feat-card h3 { margin: 0 0 6px; font-size: 1.02rem; }
+      .feat-card p { margin: 0; color: var(--ink-2); font-size: .94rem; }
+
+      .money { background: var(--bg-raise); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; }
+      .money ol { margin: 0; padding-left: 22px; display: grid; gap: 10px; color: var(--ink-2); }
+      .money ol strong { color: var(--ink); }
+      .money .flow {
+        display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 20px;
+        font-family: "JetBrains Mono", monospace; font-size: .8rem; font-weight: 700;
+      }
+      .money .flow span { background: var(--bg-sink); border: 1px solid var(--line); padding: 7px 12px; border-radius: 99px; }
+      .money .flow b { color: var(--ink-3); }
+
+      details.faq { background: var(--bg-raise); border: 1px solid var(--line); border-radius: 14px; margin-bottom: 10px; }
+      details.faq summary { font-weight: 700; padding: 14px 18px; cursor: pointer; list-style: none; display: flex; justify-content: space-between; gap: 12px; align-items: center; }
+      details.faq summary::-webkit-details-marker { display: none; }
+      details.faq summary::after { content: "+"; font-size: 1.3rem; font-weight: 800; color: var(--ink-3); }
+      details.faq[open ] summary::after { content: "–"; }
+      details.faq .a { padding: 0 18px 16px; color: var(--ink-2); font-size: .95rem; }
+      details.faq .a p { margin: 0; }
+
+      footer { margin-top: 60px; border-top: 1px solid var(--line); padding: 26px 0 40px; color: var(--ink-3); font-size: .88rem; }
+      footer p { margin: 0 0 8px; max-width: 75ch; }
+
+      /* ---------- Ad modal ---------- */
+      .overlay {
+        display: none; position: fixed; inset: 0; z-index: 50;
+        background: rgba(5, 5, 8, .78); backdrop-filter: blur(4px);
+        align-items: center; justify-content: center; padding: 18px;
+      }
+      .overlay.show { display: flex; }
+      .modal {
+        background: var(--bg-raise); color: var(--ink);
+        width: 100%; max-width: 460px; border-radius: 20px; padding: 22px;
+        box-shadow: var(--shadow); max-height: 92vh; overflow: auto;
+      }
+      .modal .m-tag { font-size: .68rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-3); display: flex; justify-content: space-between; align-items: center; }
+      .modal .m-close { background: var(--bg-sink); border: 1px solid var(--line); width: 38px; height: 38px; border-radius: 10px; font-size: 1.05rem; line-height: 1; color: var(--ink-2); }
+      .ad-creative {
+        margin: 14px 0; border-radius: 14px; padding: 22px; text-align: center;
+        background: #0b0b0e; color: #f4f4f6; border: 1px solid #2a2a33;
+      }
+      .ad-creative .brand { font-weight: 800; font-size: 1.35rem; letter-spacing: -0.01em; }
+      .ad-creative .brand em { font-style: normal; color: var(--cyan-bright); }
+      .ad-creative p { color: #b9b9c2; font-size: .92rem; margin: 8px 0 14px; }
+      .ad-creative a {
+        display: inline-block; background: var(--red); color: #fff; font-weight: 800;
+        padding: 10px 20px; border-radius: 10px; text-decoration: none; min-height: 44px; line-height: 24px;
+      }
+      .ad-timer { text-align: center; }
+      .ad-timer .count { font-family: "JetBrains Mono", monospace; font-size: 2rem; font-weight: 700; }
+      .ad-timer p { color: var(--ink-2); font-size: .9rem; margin: 2px 0 12px; }
+      .ad-timer .bar { height: 8px; background: var(--bg-sink); border-radius: 99px; overflow: hidden; margin-bottom: 16px; }
+      .ad-timer .bar i { display: block; height: 100%; width: 0%; background: var(--red); transition: width 1s linear; }
+      .btn-unlock { width: 100%; background: var(--ink); color: var(--bg); min-height: 52px; }
+      .btn-unlock[disabled] { opacity: .45; cursor: not-allowed; }
+      .skip-note { text-align: center; color: var(--ink-3); font-size: .8rem; margin-top: 10px; }
+
+      /* ---------- Pop-up ads (entry + gate) ---------- */
+      .thumb { overflow: hidden; position: relative; padding: 0; }
+      .thumb img.cover { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: none; }
+      .thumb.has-cover img.cover { display: block; }
+      .thumb.has-cover .thumb-fallback { display: none; }
+      .thumb .thumb-label { position: absolute; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,.72); color: #fff; font-size: .68rem; padding: 5px 6px; display: none; }
+      .thumb.has-cover .thumb-label { display: block; }
+      .video-preview { display: none; margin-top: 14px; border-radius: 12px; overflow: hidden; background: #000; border: 1px solid #2c2c36; }
+      .video-preview.show { display: block; }
+      .video-preview video { width: 100%; max-height: 420px; display: block; background: #000; }
+      .video-preview .vp-bar { display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; padding: 10px 12px; background: #17171d; color: #c6c6cd; font-size: .82rem; font-weight: 700; }
+      .popup-creative { border-radius: 14px; overflow: hidden; text-align: left; margin: 14px 0; border: 1px solid #2a2a33; }
+      .popup-creative .pc-body { padding: 20px; }
+      .popup-creative .pc-kicker { font-size: .68rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; opacity: .9; }
+      .popup-creative .pc-title { font-weight: 800; font-size: 1.55rem; line-height: 1.05; margin: 6px 0 8px; letter-spacing: -.02em; }
+      .popup-creative .pc-desc { font-size: .92rem; margin: 0 0 14px; opacity: .92; }
+      .popup-creative .pc-cta { display: inline-flex; align-items: center; justify-content: center; min-height: 46px; padding: 10px 18px; border-radius: 10px; font-weight: 800; text-decoration: none; background: #fff; color: #111; }
+      .popup-creative.shop { background: #ee4d2d; color: #fff; }
+      .popup-creative.shop .pc-cta { color: #ee4d2d; }
+      .popup-creative.market { background: #03ac0e; color: #fff; }
+      .popup-creative.market .pc-cta { color: #027a0a; }
+      .popup-creative.studio { background: #0b0b0e; color: #f4f4f6; text-align: center; }
+      .popup-creative.studio .pc-cta { background: var(--red); color: #fff; }
+      .popup-creative.studio .pc-cta em, .popup-creative .pc-title em { font-style: normal; color: var(--cyan-bright); }
+      .popup-modal { animation: popIn .22s ease; }
+      @keyframes popIn { from { transform: scale(.96) translateY(8px); opacity: 0; } to { transform: scale(1) translateY(0); opacity: 1; } }
+      .btn-popup-close[disabled] { opacity: .45; cursor: not-allowed; }
+      .source-note { margin-top: 10px; color: #8f8f99; font-size: .8rem; }
+      .source-note a { color: var(--cyan-bright); font-weight: 700; }
+
+      .toast {
+        position: fixed; left: 50%; bottom: 22px; transform: translateX(-50%) translateY(20px);
+        background: var(--ink); color: var(--bg); font-weight: 700; font-size: .92rem;
+        padding: 12px 20px; border-radius: 99px; opacity: 0; pointer-events: none;
+        transition: opacity .25s ease, transform .25s ease; z-index: 60; max-width: 92vw; text-align: center;
+        box-shadow: var(--shadow);
+      }
+      .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+      @media (max-width: 560px) {
+        .hero { padding: 40px 0 48px; }
+        .btn-go { flex: 1 1 100%; }
+        .quality .btn-dl { flex: 1 1 100%; }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        html { scroll-behavior: auto; }
+        * { transition: none !important; }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="hero">
+      <div class="wrap">
+        <h1>Download Video TikTok <span class="nw">Tanpa Watermark</span></h1>
+        <p class="lede">Tempel link video TikTok, lewati <strong>iklan pop-up singkat</strong>, lalu simpan kualitas <strong>Full HD 1080p</strong> ke perangkatmu — tanpa watermark, tanpa install aplikasi, tanpa daftar.</p>
+
+        <div class="tool">
+          <div class="demo-banner" role="note">
+            <span class="tag">POP-UP</span>
+            <p><strong>Sekarang ada iklan pop-up:</strong> pop-up belanja muncul saat halaman dibuka, dan pop-up iklan ±15 detik muncul lagi sebelum download HD terbuka. Tempel link TikTok di bawah — video diambil langsung lewat API TikWM, lalu file HD tanpa watermark bisa diunduh setelah iklan selesai.</p>
+          </div>
+          <form id="fetchForm" novalidate>
+            <label for="urlInput">Link video TikTok</label>
+            <div class="input-row">
+              <input id="urlInput" type="url" inputmode="url" autocomplete="off" spellcheck="false"
+                placeholder="https://www.tiktok.com/@username/video/…" />
+              <button type="button" class="btn btn-ghost" id="pasteBtn">Tempel</button>
+              <button type="submit" class="btn btn-go" id="fetchBtn">Download</button>
+            </div>
+            <p class="hint">Belum punya link? <button type="button" id="sampleBtn">Pakai link contoh</button> untuk mencoba alurnya.</p>
+            <div class="error" id="errorBox" role="alert"></div>
+          </form>
+
+          <div class="progress" id="progressBox" aria-live="polite">
+            <div class="bar"><i id="progressBar"></i></div>
+            <div class="step" id="progressStep">Menghubungi server…</div>
+          </div>
+
+          <div class="result" id="resultBox">
+            <div class="result-head">
+              <div class="thumb" id="thumbBox">
+                <img class="cover" id="resCover" alt="Thumbnail video TikTok yang ditemukan" />
+                <span class="thumb-fallback">
+                  <svg viewBox="0 0 24 24" fill="none" width="34" height="34"><path d="M9 18.5a3.5 3.5 0 1 1-2-3.16V6.1A6.5 6.5 0 0 0 19 8.6" stroke="#25f4ee" stroke-width="1.8" stroke-linecap="round"/><path d="M14 3v10.5" stroke="#fe2c55" stroke-width="1.8" stroke-linecap="round"/><circle cx="14" cy="17" r="3.5" stroke="#f4f4f6" stroke-width="1.8"/></svg>
+                  <span style="display:block;margin-top:8px">Pratinjau video</span>
+                </span>
+                <span class="thumb-label">Thumbnail asli</span>
+              </div>
+              <div class="result-meta">
+                <div class="author" id="resAuthor">@pengguna</div>
+                <p class="desc" id="resDesc">Video ditemukan. Pilih kualitas di bawah ini — semua kualitas terbuka setelah iklan pop-up singkat.</p>
+                <div class="chips">
+                  <span class="chip hot">TANPA WATERMARK</span>
+                  <span class="chip" id="resId">ID —</span>
+                  <span class="chip" id="resDur">MP4</span>
+                </div>
+                <p class="source-note" id="sourceNote">Sumber video diambil saat kamu menekan Download, lewat API publik TikWM.</p>
+              </div>
+            </div>
+
+            <div class="video-preview" id="videoPreview">
+              <video id="previewVideo" controls playsinline preload="metadata"></video>
+              <div class="vp-bar"><span>Pratinjau tanpa watermark</span><span>Download HD di bawah ↓ · atau tekan lama video ini → Simpan Video</span></div>
+            </div>
+
+            <div class="quality-list" id="qualityList">
+              <div class="quality">
+                <div class="q-info">
+                  <div class="q-name">Full HD 1080p</div>
+                  <div class="q-sub" id="qSubHd">MP4 · tanpa watermark · file HD dari TikWM (hdplay)</div>
+                </div>
+                <span class="badge-ad">Pop-up iklan</span>
+                <button type="button" class="btn btn-dl locked" data-quality="Full HD 1080p" data-kind="hd" data-locked="1">Lihat Pop-up, Lalu Download HD</button>
+              </div>
+              <div class="quality">
+                <div class="q-info">
+                  <div class="q-name">HD 720p / Kualitas Terbaik Tersedia</div>
+                  <div class="q-sub" id="qSubSd">MP4 · tanpa watermark · file asli tertinggi dari sumbernya</div>
+                </div>
+                <span class="badge-ad">Pop-up iklan</span>
+                <button type="button" class="btn btn-dl locked" data-quality="HD Terbaik" data-kind="sd" data-locked="1">Lihat Pop-up, Lalu Download HD</button>
+              </div>
+            </div>
+
+            <div class="demo-note" id="demoNote" role="status"></div>
+          </div>
+        </div>
+
+        <div class="ad-slot" aria-hidden="true">
+          <span class="ad-tag">Slot Iklan</span>
+          Ruang banner untuk jaringan iklan (AdSense / Adsterra / lainnya)
+          <div class="ad-size">728 × 90 · Leaderboard</div>
+        </div>
+      </div>
+    </header>
+
+    <main class="wrap">
+      <section class="block" id="cara">
+        <h2>Cara download video TikTok tanpa watermark</h2>
+        <p class="sub">Tiga langkah, kurang dari satu menit. Berlaku untuk HP Android, iPhone, dan laptop.</p>
+        <div class="steps">
+          <div class="step-card">
+            <div class="num">01</div>
+            <h3>Salin link video</h3>
+            <p>Buka aplikasi TikTok, ketuk tombol <strong>Bagikan</strong> pada video yang kamu mau, lalu pilih <strong>Salin tautan</strong>.</p>
+          </div>
+          <div class="step-card">
+            <div class="num">02</div>
+            <h3>Tempel &amp; pilih kualitas</h3>
+            <p>Tempel link ke kolom di atas dan tekan Download. Video asli, thumbnail, dan pratinjaunya tampil — pilih Full HD 1080p, dua-duanya tanpa watermark.</p>
+          </div>
+          <div class="step-card">
+            <div class="num">03</div>
+            <h3>Lewati pop-up iklan, lalu simpan</h3>
+            <p>Pop-up iklan belanja tampil ±15 detik. Setelah hitungannya selesai, klik Download HD — file MP4 tanpa watermark langsung terunduh &amp; tersimpan ke perangkatmu.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="block" id="fitur">
+        <h2>Kenapa pakai downloader ini</h2>
+        <p class="sub">Dibangun untuk cepat dan ringan — halaman ini sendiri hanya berukuran kecil dan langsung bisa dipakai dari browser.</p>
+        <div class="feat">
+          <div class="feat-card">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#fe2c55" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4.5 13.5H11L9.5 22 19 10h-6.5L13 2Z"/></svg>
+            <h3>Proses cepat</h3>
+            <p>Link diproses dalam hitungan detik. Tidak ada antrean, tidak ada batas jumlah download per hari.</p>
+          </div>
+          <div class="feat-card">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#0fbdb4" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m10 9.5 5 2.5-5 2.5v-5Z"/></svg>
+            <h3>HD asli, tanpa watermark</h3>
+            <p>File diambil lewat API TikWM dalam kualitas HD tertinggi yang tersedia dari sumbernya — bersih dari watermark dan username TikTok, lengkap dengan thumbnail &amp; pratinjau videonya.</p>
+          </div>
+          <div class="feat-card">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#fe2c55" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg>
+            <h3>Tanpa aplikasi &amp; tanpa akun</h3>
+            <p>Cukup browser. Tidak perlu install APK, tidak perlu login, dan link yang kamu tempel tidak disimpan.</p>
+          </div>
+        </div>
+      </section>
+
+      <div class="ad-slot" aria-hidden="true">
+        <span class="ad-tag">Slot Iklan</span>
+        Ruang banner untuk jaringan iklan (AdSense / Adsterra / lainnya)
+        <div class="ad-size">336 × 280 · Medium Rectangle</div>
+      </div>
+
+      <section class="block" id="monetisasi">
+        <h2>Cara situs ini menghasilkan uang</h2>
+        <p class="sub">Modelnya sederhana: semua download dibayar dengan perhatian — bukan dengan uang. Setiap unduhan melewati iklan singkat dulu.</p>
+        <div class="money">
+          <div class="flow">
+            <span>Pengunjung tempel link</span><b>→</b>
+            <span>Pilih HD 1080p</span><b>→</b>
+            <span>Pop-up iklan tampil ±15 detik</span><b>→</b>
+            <span>Tombol download terbuka</span><b>→</b>
+            <span>Pengiklan membayar tayangan itu</span>
+          </div>
+          <ol>
+            <li><strong>Pop-up saat halaman dibuka.</strong> Satu pop-up belanja (flash sale / gratis ongkir) tampil sekali beberapa detik setelah halaman dibuka — format pop-up seperti ini yang biasa dijual jaringan iklan per tayangan.</li>
+            <li><strong>Pop-up sebelum download HD.</strong> Setiap download HD melewati pop-up iklan ±15 detik dulu. Tayangan yang selesai ditonton + klik pada iklannya itulah yang dibayar jaringan iklan / program affiliate.</li>
+            <li><strong>Slot banner di halaman.</strong> Ruang bertanda “Slot Iklan” di halaman ini adalah posisi banner yang disewakan ke jaringan iklan, dibayar per tayang (CPM) dan per klik.</li>
+            <li><strong>Tidak ada jalur gratis.</strong> Semua kualitas HD dikunci di balik pop-up iklan, jadi setiap download menghasilkan satu tayangan iklan yang selesai ditonton.</li>
+            <li><strong>Yang dibutuhkan agar uangnya nyata:</strong> ganti kreatif contoh di pop-up dengan kode akun jaringan iklanmu yang disetujui (Google AdSense, Adsterra, atau link affiliate Shopee/Tokopedia milikmu) dan pasang di domain sendiri. Tanpa kode itu, pop-up di sini hanya contoh tampilannya dan belum membayar.</li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="block" id="faq">
+        <h2>Pertanyaan yang sering diajukan</h2>
+        <p class="sub">Hal-hal yang paling sering ditanyakan soal download video TikTok tanpa watermark.</p>
+        <details class="faq">
+          <summary>Apakah benar videonya tanpa watermark?</summary>
+          <div class="a"><p>Ya. File yang diunduh adalah video asli dari server TikTok sebelum watermark ditempel, jadi tidak ada logo TikTok maupun nama pengguna yang menempel di video.</p></div>
+        </details>
+        <details class="faq">
+          <summary>Kenapa download HD harus melewati pop-up iklan dulu?</summary>
+          <div class="a"><p>Karena memproses dan mengirim video resolusi tinggi memakan bandwidth paling besar. Iklan singkat ±15 detik menutup biaya itu, sehingga kamu tidak perlu berlangganan berbayar untuk mengunduh.</p></div>
+        </details>
+        <details class="faq">
+          <summary>Apakah bisa download dari link vm.tiktok.com atau vt.tiktok.com?</summary>
+          <div class="a"><p>Bisa. Link pendek dari tombol Bagikan (vm.tiktok.com / vt.tiktok.com) maupun link panjang dari browser sama-sama diterima — cukup tempel apa adanya.</p></div>
+        </details>
+        <details class="faq">
+          <summary>Di mana video tersimpan setelah diunduh?</summary>
+          <div class="a"><p>Di folder Unduhan/Download perangkatmu. Di iPhone, cek aplikasi Files &gt; Unduhan; di Android, cek galeri atau File Manager &gt; Download.</p></div>
+        </details>
+        <details class="faq">
+          <summary>Apakah boleh mengunggah ulang video yang diunduh?</summary>
+          <div class="a"><p>Video tetap milik kreatornya. Unduh untuk ditonton pribadi tidak masalah, tetapi mengunggah ulang atau memakainya secara komersial tanpa izin kreator bisa melanggar hak cipta dan ketentuan TikTok.</p></div>
+        </details>
+      </section>
+
+      <footer>
+        <p><strong>Tentang unduhan &amp; iklan:</strong> video diambil langsung dari browser lewat API publik TikWM (tikwm.com) saat kamu menekan Download — jika API sedang tidak bisa dijangkau, pratinjau tetap tampil dari link-nya dan kamu bisa coba lagi. Iklan pop-up di halaman ini adalah slot contoh bergaya iklan belanja online (flash sale / gratis ongkir) yang siap diganti kode Adsterra / AdSense / affiliate Shopee — pendapatan sungguhan baru masuk setelah kode jaringan iklan milikmu ditempel di slot pop-up ini dan ada pengunjung yang melihat / mengkliknya.</p>
+        <p>Unduh hanya konten yang kamu miliki haknya atau yang kreatornya izinkan. TikTok adalah merek dagang ByteDance; halaman ini tidak berafiliasi dengan TikTok, Shopee, atau Tokopedia.</p>
+      </footer>
+    </main>
+
+    <!-- Entry pop-up ad: muncul sekali beberapa detik setelah halaman dibuka -->
+    <div class="overlay" id="popupOverlay" role="dialog" aria-modal="true" aria-labelledby="popupTitle">
+      <div class="modal popup-modal">
+        <div class="m-tag">
+          <span>Iklan Pop-up · Sponsored</span>
+          <button type="button" class="m-close" id="popupClose" aria-label="Tutup pop-up iklan">✕</button>
+        </div>
+        <div class="popup-creative shop">
+          <div class="pc-body">
+            <div class="pc-kicker">Flash Sale Hari Ini</div>
+            <div class="pc-title" id="popupTitle">Diskon s/d 90% + Gratis Ongkir</div>
+            <p class="pc-desc">Belanja online lagi murah-murahnya hari ini — gadget, fashion, dan kebutuhan rumah. Klik untuk lihat promonya, atau tutup pop-up ini untuk lanjut download video.</p>
+            <a class="pc-cta" href="https://shopee.co.id" target="_blank" rel="noopener sponsored">Belanja Sekarang →</a>
+          </div>
+        </div>
+        <button type="button" class="btn btn-unlock btn-popup-close" id="popupCloseBtn" disabled>Tutup dalam 5 detik…</button>
+        <div class="skip-note">Slot pop-up ini siap diganti kode iklan Adsterra / AdSense / affiliate — di situlah tayangan &amp; klik berubah jadi pendapatan.</div>
+      </div>
+    </div>
+
+    <!-- Ad gate pop-up: sebelum download HD -->
+    <div class="overlay" id="adOverlay" role="dialog" aria-modal="true" aria-labelledby="adTitle">
+      <div class="modal popup-modal">
+        <div class="m-tag">
+          <span>Iklan Pop-up · sebelum download HD</span>
+          <button type="button" class="m-close" id="adClose" aria-label="Tutup iklan">✕</button>
+        </div>
+        <div id="gateAdCreative"></div>
+        <div class="ad-timer">
+          <div class="count" id="adCount">15</div>
+          <p id="adStatus">Download <strong id="adQuality">HD</strong> terbuka dalam hitungan di atas…</p>
+          <div class="bar"><i id="adBar"></i></div>
+          <button type="button" class="btn btn-unlock" id="unlockBtn" disabled>Tonton iklan sampai selesai…</button>
+          <div class="skip-note">Ruang pop-up di atas adalah slot iklan: ganti dengan kode Adsterra / AdSense / affiliate milikmu agar setiap tayangan menghasilkan pendapatan.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="toast" id="toast" role="status"></div>
+
+    <script>
+      (function () {
+        var form = document.getElementById('fetchForm');
+        var input = document.getElementById('urlInput');
+        var fetchBtn = document.getElementById('fetchBtn');
+        var errorBox = document.getElementById('errorBox');
+        var progressBox = document.getElementById('progressBox');
+        var progressBar = document.getElementById('progressBar');
+        var progressStep = document.getElementById('progressStep');
+        var resultBox = document.getElementById('resultBox');
+        var demoNote = document.getElementById('demoNote');
+        var toast = document.getElementById('toast');
+        var toastTimer = null;
+
+        function showToast(msg) {
+          toast.textContent = msg;
+          toast.classList.add('show');
+          clearTimeout(toastTimer);
+          toastTimer = setTimeout(function () { toast.classList.remove('show'); }, 3200);
+        }
+
+        function showError(msg) {
+          errorBox.textContent = msg;
+          errorBox.classList.add('show');
+        }
+        function hideError() { errorBox.classList.remove('show'); }
+
+        document.getElementById('pasteBtn').addEventListener('click', function () {
+          if (navigator.clipboard && navigator.clipboard.readText) {
+            navigator.clipboard.readText().then(function (text) {
+              if (text) { input.value = text.trim(); hideError(); input.focus(); }
+              else { showToast('Clipboard kosong — tempel link secara manual.'); }
+            }).catch(function () {
+              showToast('Izin clipboard ditolak — tekan lama kolom lalu pilih Tempel.');
+              input.focus();
+            });
+          } else {
+            showToast('Tekan lama kolom link, lalu pilih Tempel.');
+            input.focus();
+          }
+        });
+
+        document.getElementById('sampleBtn').addEventListener('click', function () {
+          input.value = 'https://www.tiktok.com/@tiktok/video/7106594312292453675';
+          hideError();
+          input.focus();
+          showToast('Link contoh terisi — tekan Download untuk mengambil videonya.');
+        });
+
+        function parseTikTok(url) {
+          var m = url.match(/tiktok\.com\/@([^\/\?#]+)/i);
+          var idm = url.match(/video\/(\d+)/i);
+          return { author: m ? '@' + m[1] : '@pengguna_tiktok', id: idm ? idm[1] : '—' };
+        }
+
+        /* State video hasil fetch API TikWM */
+        var currentVideo = { hd: '', sd: '', cover: '', title: '', author: '', id: '', duration: '', sourceUrl: '', hdSize: 0, sdSize: 0 };
+        var thumbBox = document.getElementById('thumbBox');
+        var resCover = document.getElementById('resCover');
+        var videoPreview = document.getElementById('videoPreview');
+        var previewVideo = document.getElementById('previewVideo');
+
+        function setProgress(pct, text) { progressBar.style.width = pct + '%'; progressStep.textContent = text; }
+
+        function renderResult(url) {
+          var info = parseTikTok(url);
+          document.getElementById('resAuthor').textContent = currentVideo.author || info.author;
+          document.getElementById('resId').textContent = 'ID ' + (currentVideo.id || info.id);
+          document.getElementById('resDur').textContent = currentVideo.duration ? ('MP4 · ' + currentVideo.duration + ' dtk') : 'MP4';
+          var descEl = document.getElementById('resDesc');
+          descEl.textContent = currentVideo.title ? currentVideo.title : 'Video ditemukan. Pilih kualitas di bawah ini — semua kualitas terbuka setelah iklan pop-up singkat.';
+          if (currentVideo.cover) { resCover.src = currentVideo.cover; thumbBox.classList.add('has-cover'); } else { resCover.removeAttribute('src'); thumbBox.classList.remove('has-cover'); }
+          var playUrl = currentVideo.hd || currentVideo.sd;
+          if (playUrl) { previewVideo.src = playUrl; videoPreview.classList.add('show'); } else { previewVideo.removeAttribute('src'); videoPreview.classList.remove('show'); }
+          var qSubHd = document.getElementById('qSubHd');
+          var qSubSd = document.getElementById('qSubSd');
+          if (qSubHd) qSubHd.textContent = 'MP4 · tanpa watermark · file HD dari TikWM (hdplay)' + (currentVideo.hdSize ? ' · ' + (currentVideo.hdSize / 1048576).toFixed(1) + ' MB' : '');
+          if (qSubSd) qSubSd.textContent = 'MP4 · tanpa watermark · file asli tertinggi dari sumbernya' + (currentVideo.sdSize ? ' · ' + (currentVideo.sdSize / 1048576).toFixed(1) + ' MB' : '');
+          /* Reset tombol download ke terkunci untuk video baru */
+          var btns = document.querySelectorAll('.btn-dl');
+          for (var b = 0; b < btns.length; b++) {
+            btns[b].classList.add('locked'); btns[b].classList.remove('unlocked'); btns[b].setAttribute('data-locked', '1');
+            btns[b].textContent = 'Lihat Pop-up, Lalu Download HD';
+          }
+          progressBox.classList.remove('show'); progressBar.style.width = '0%';
+          resultBox.classList.add('show');
+          fetchBtn.disabled = false; fetchBtn.textContent = 'Download';
+          resultBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          hideError();
+          demoNote.classList.remove('show');
+          var url = input.value.trim();
+          if (!url) { showError('Kolom link masih kosong. Tempel dulu link video TikTok-nya.'); input.focus(); return; }
+          if (!/^(https?:\/\/)?(www\.|m\.)?(tiktok\.com|vm\.tiktok\.com|vt\.tiktok\.com)\//i.test(url)) {
+            showError('Itu sepertinya bukan link TikTok. Contoh format yang benar: https://www.tiktok.com/@username/video/123456…');
+            input.focus(); return;
+          }
+          if (!/^https?:\/\//i.test(url)) url = 'https://' + url;
+          fetchBtn.disabled = true; fetchBtn.textContent = 'Mengambil video…';
+          resultBox.classList.remove('show');
+          progressBox.classList.add('show');
+          currentVideo = { hd: '', sd: '', cover: '', title: '', author: '', id: '', duration: '', sourceUrl: url, hdSize: 0, sdSize: 0 };
+          setProgress(20, 'Menghubungi API TikWM…');
+          var apiUrl = 'https://www.tikwm.com/api/?url=' + encodeURIComponent(url) + '&hd=1';
+          var timedOut = false;
+          var timer = setTimeout(function () { timedOut = true; setProgress(70, 'API lambat — tetap mencoba…'); }, 6000);
+          fetch(apiUrl, { method: 'GET' })
+            .then(function (r) { return r.json(); })
+            .then(function (json) {
+              clearTimeout(timer);
+              setProgress(85, 'Menyiapkan pilihan kualitas HD…');
+              if (json && json.data) {
+                var d = json.data;
+                currentVideo.hd = d.hdplay || '';
+                currentVideo.sd = d.play || '';
+                currentVideo.hdSize = d.hd_size || 0;
+                currentVideo.sdSize = d.size || 0;
+                currentVideo.cover = d.cover || '';
+                currentVideo.title = d.title || '';
+                currentVideo.author = d.author && d.author.unique_id ? '@' + d.author.unique_id : (d.author && d.author.nickname ? d.author.nickname : '');
+                currentVideo.id = d.id || '';
+                currentVideo.duration = d.duration || '';
+              }
+              setTimeout(function () { setProgress(100, 'Selesai!'); renderResult(url); if (!currentVideo.hd && !currentVideo.sd) { demoNote.innerHTML = '<strong>Video terdeteksi dari link-nya, tapi API tidak mengembalikan file saat ini.</strong> Coba tekan Download lagi, atau pakai link video lain — kadang API TikWM membatasi permintaan berturut-turut.'; demoNote.classList.add('show'); } }, 350);
+            })
+            .catch(function () {
+              clearTimeout(timer);
+              setProgress(100, 'Selesai');
+              renderResult(url);
+              demoNote.innerHTML = '<strong>Pratinjau tampil dari link, tapi API pengambil video tidak terjangkau dari koneksi ini.</strong> Coba lagi sebentar lagi — tombol Download HD tetap melewati pop-up iklan dulu, lalu membuka file bila API sudah merespons.';
+              demoNote.classList.add('show');
+            });
+        });
+
+        /* ----- Download buttons + pop-up gate ----- */
+        var pendingQuality = null;
+        var pendingButton = null;
+        var pendingKind = 'hd';
+
+        /* Unduh file beneran: ambil file sebagai blob (CDN TikTok mengizinkan CORS),
+           lalu simpan lewat blob URL — atribut download bekerja untuk blob se-origin,
+           jadi file langsung tersimpan tanpa membuka tab baru (cara lama pakai
+           target="_blank" ke URL lintas-origin: atribut download diabaikan browser
+           dan tab baru terblokir di webview, sehingga terasa "tidak bisa download"). */
+        var downloading = false;
+
+        function showDlStatus(html) {
+          demoNote.innerHTML = html;
+          demoNote.classList.add('show');
+        }
+
+        function showDlFallback(fileUrl, quality) {
+          demoNote.innerHTML = '';
+          var strong = document.createElement('strong');
+          strong.textContent = 'Unduhan otomatis belum berhasil untuk ' + quality + '.';
+          demoNote.appendChild(strong);
+          demoNote.appendChild(document.createTextNode(' Ketuk tombol di bawah untuk membuka file videonya, lalu pilih Download / Simpan — atau tekan lama video pratinjau di atas, lalu pilih Simpan Video.'));
+          demoNote.appendChild(document.createElement('br'));
+          var link = document.createElement('a');
+          link.className = 'fallback-link';
+          link.href = fileUrl;
+          link.setAttribute('download', '');
+          link.textContent = '⬇ Buka File Video ' + quality;
+          demoNote.appendChild(link);
+          demoNote.classList.add('show');
+          demoNote.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        function saveBlob(blob, quality, kind) {
+          var fname = 'tiktok-' + (currentVideo.id || 'video') + (kind === 'hd' ? '-hd1080p' : '-hd') + '.mp4';
+          var objUrl = URL.createObjectURL(blob);
+          var a = document.createElement('a');
+          a.href = objUrl;
+          a.download = fname;
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+          setTimeout(function () { URL.revokeObjectURL(objUrl); }, 4000);
+          showDlStatus('<strong>Download ' + quality + ' selesai — file tersimpan.</strong> Cek folder <strong>Download / Unduhan</strong> di perangkatmu (di iPhone: aplikasi Files &gt; Unduhan). Nama file: ' + fname + ' (' + (blob.size / 1048576).toFixed(1) + ' MB), MP4 tanpa watermark. Kalau unduhan tidak muncul, tekan lama video pratinjau di atas lalu pilih <strong>Simpan Video</strong>.');
+          demoNote.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          showToast('Video ' + quality + ' terunduh ✔');
+        }
+
+        function fetchBlobWithProgress(url, expectedSize, btn, quality) {
+          return fetch(url).then(function (res) {
+            if (!res.ok) throw new Error('HTTP ' + res.status);
+            var total = parseInt(res.headers.get('Content-Length') || '', 10) || expectedSize || 0;
+            if (!res.body || !res.body.getReader) {
+              return res.blob().then(function (b) { return { blob: b, type: res.headers.get('Content-Type') || '' }; });
+            }
+            var reader = res.body.getReader();
+            var chunks = [];
+            var received = 0;
+            function pump() {
+              return reader.read().then(function (step) {
+                if (step.done) {
+                  return { blob: new Blob(chunks, { type: 'video/mp4' }), type: 'video/mp4' };
+                }
+                chunks.push(step.value);
+                received += step.value.length;
+                var pct = total ? Math.min(99, Math.round(received / total * 100)) : 0;
+                if (btn) btn.textContent = 'Mengunduh… ' + (total ? pct + '%' : (received / 1048576).toFixed(1) + ' MB');
+                showDlStatus('<strong>Sedang mengunduh ' + quality + '…</strong> jangan tutup halaman ini.<div class="dl-bar"><i style="width:' + pct + '%"></i></div><span class="dl-pct">' + (total ? pct + '% · ' + (received / 1048576).toFixed(1) + ' / ' + (total / 1048576).toFixed(1) + ' MB' : (received / 1048576).toFixed(1) + ' MB terunduh') + '</span>');
+                return pump();
+              });
+            }
+            return pump();
+          });
+        }
+
+        function doDownload(quality, kind, btn) {
+          var primary = kind === 'hd' ? currentVideo.hd : currentVideo.sd;
+          var backup = kind === 'hd' ? currentVideo.sd : currentVideo.hd;
+          var fileUrl = primary || backup;
+          if (!fileUrl) {
+            showDlStatus('<strong>File untuk video ini belum tersedia dari API.</strong> Tekan tombol Download di atas sekali lagi untuk mengambil ulang dari link TikTok-nya, lalu ulangi pop-up iklannya.');
+            demoNote.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            return;
+          }
+          if (downloading) { showToast('Unduhan sedang berjalan — tunggu sampai selesai.'); return; }
+          downloading = true;
+          var oldLabel = btn ? btn.textContent : '';
+          if (btn) { btn.disabled = true; btn.textContent = 'Mengunduh… 0%'; }
+          showDlStatus('<strong>Sedang mengunduh ' + quality + '…</strong> jangan tutup halaman ini.<div class="dl-bar"><i style="width:2%"></i></div><span class="dl-pct">Menghubungi server video…</span>');
+          demoNote.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          var expected = kind === 'hd' ? (currentVideo.hdSize || currentVideo.sdSize) : (currentVideo.sdSize || currentVideo.hdSize);
+          fetchBlobWithProgress(fileUrl, expected, btn, quality)
+            .catch(function () {
+              /* Coba URL kualitas cadangan bila URL utama gagal */
+              if (backup && backup !== fileUrl) return fetchBlobWithProgress(backup, expected, btn, quality);
+              throw new Error('fetch failed');
+            })
+            .then(function (out) {
+              if (!out.blob || out.blob.size < 10000) throw new Error('empty file');
+              var blob = out.blob;
+              if (!/video/.test(blob.type || out.type || '')) blob = new Blob([blob], { type: 'video/mp4' });
+              saveBlob(blob, quality, kind);
+            })
+            .catch(function () { showDlFallback(fileUrl, quality); })
+            .then(function () {
+              downloading = false;
+              if (btn) { btn.disabled = false; btn.textContent = oldLabel || ('⬇ Download ' + quality + ' Sekarang'); }
+            });
+        }
+
+        document.getElementById('qualityList').addEventListener('click', function (e) {
+          var btn = e.target.closest('.btn-dl');
+          if (!btn) return;
+          var quality = btn.getAttribute('data-quality');
+          var kind = btn.getAttribute('data-kind') || 'hd';
+          if (btn.getAttribute('data-locked') === '1') { openAd(quality, btn, kind); }
+          else { doDownload(quality, kind, btn); }
+        });
+
+        /* ----- Pop-up creatives: bergantian seperti jaringan iklan ----- */
+        var AD_CREATIVES = [
+          { cls: 'shop', kicker: 'Flash Sale · Belanja Online', title: 'Diskon s/d 90% + Gratis Ongkir', desc: 'Promo belanja hari ini: gadget, fashion, dan kebutuhan rumah lagi turun harga. Cek sebelum kehabisan!', cta: 'Belanja Sekarang →', href: 'https://shopee.co.id' },
+          { cls: 'market', kicker: 'Marketplace · Gratis Ongkir', title: 'Belanja Hemat, Kirim Cepat', desc: 'Semua kebutuhan ada — bayar di tempat, gratis ongkir, dan promo tiap hari. Klik untuk lihat katalognya.', cta: 'Lihat Promo →', href: 'https://www.tokopedia.com' },
+          { cls: 'studio', kicker: 'Xauzy Studio · Jasa Website', title: 'XAUZY <em>STUDIO</em>', desc: 'Website custom & mini-game untuk bisnismu. Landing page, bio link, web app — mulai Rp150 ribuan.', cta: 'Lihat Portofolio', href: 'https://kingrelaxed.github.io/project-/xauzy/' }
+        ];
+        var adIdx = 0;
+        function renderGateCreative() {
+          var c = AD_CREATIVES[adIdx % AD_CREATIVES.length]; adIdx++;
+          document.getElementById('gateAdCreative').innerHTML =
+            '<div class="popup-creative ' + c.cls + '"><div class="pc-body">' +
+            '<div class="pc-kicker">' + c.kicker + '</div>' +
+            '<div class="pc-title" id="adTitle">' + c.title + '</div>' +
+            '<p class="pc-desc">' + c.desc + '</p>' +
+            '<a class="pc-cta" href="' + c.href + '" target="_blank" rel="noopener sponsored">' + c.cta + '</a>' +
+            '</div></div>';
+        }
+
+        /* ----- Entry pop-up: muncul sekali, 4 detik setelah halaman dibuka ----- */
+        var popupOverlay = document.getElementById('popupOverlay');
+        var popupCloseBtn = document.getElementById('popupCloseBtn');
+        var popupShown = false; var popupTimer = null;
+        function closePopup() { clearInterval(popupTimer); popupOverlay.classList.remove('show'); }
+        setTimeout(function () {
+          if (popupShown) return; popupShown = true;
+          popupOverlay.classList.add('show');
+          var left = 5; popupCloseBtn.disabled = true; popupCloseBtn.textContent = 'Tutup dalam ' + left + ' detik…';
+          clearInterval(popupTimer);
+          popupTimer = setInterval(function () { left--; if (left <= 0) { clearInterval(popupTimer); popupCloseBtn.disabled = false; popupCloseBtn.textContent = 'Tutup Pop-up & Lanjut Download'; } else { popupCloseBtn.textContent = 'Tutup dalam ' + left + ' detik…'; } }, 1000);
+        }, 4000);
+        popupCloseBtn.addEventListener('click', closePopup);
+        document.getElementById('popupClose').addEventListener('click', closePopup);
+        popupOverlay.addEventListener('click', function (e) { if (e.target === popupOverlay && !popupCloseBtn.disabled) closePopup(); });
+
+        /* ----- Ad gate ----- */
+        var overlay = document.getElementById('adOverlay');
+        var adCount = document.getElementById('adCount');
+        var adBar = document.getElementById('adBar');
+        var adStatus = document.getElementById('adStatus');
+        var unlockBtn = document.getElementById('unlockBtn');
+        var AD_SECONDS = 15;
+        var adTimer = null;
+        var adDone = false;
+
+        function openAd(quality, btn, kind) {
+          pendingQuality = quality;
+          pendingButton = btn;
+          pendingKind = kind || 'hd';
+          adDone = false;
+          renderGateCreative();
+          document.getElementById('adQuality').textContent = quality;
+          overlay.classList.add('show');
+          var left = AD_SECONDS;
+          adCount.textContent = left;
+          adBar.style.width = '0%';
+          unlockBtn.disabled = true;
+          unlockBtn.textContent = 'Tonton iklan sampai selesai…';
+          clearInterval(adTimer);
+          adTimer = setInterval(function () {
+            left--;
+            if (left <= 0) {
+              clearInterval(adTimer);
+              adCount.textContent = '0';
+              adBar.style.width = '100%';
+              adDone = true;
+              unlockBtn.disabled = false;
+              unlockBtn.textContent = 'Download ' + quality + ' Sekarang';
+              adStatus.innerHTML = 'Iklan selesai — tombol downloadmu sudah terbuka.';
+            } else {
+              adCount.textContent = left;
+              adBar.style.width = ((AD_SECONDS - left) / AD_SECONDS * 100) + '%';
+            }
+          }, 1000);
+        }
+
+        function closeAd() {
+          clearInterval(adTimer);
+          overlay.classList.remove('show');
+        }
+
+        document.getElementById('adClose').addEventListener('click', function () {
+          closeAd();
+          if (!adDone) showToast('Iklan ditutup — download HD belum terbuka.');
+        });
+        overlay.addEventListener('click', function (e) { if (e.target === overlay) closeAd(); });
+
+        unlockBtn.addEventListener('click', function () {
+          if (!adDone) return;
+          closeAd();
+          if (pendingButton) {
+            pendingButton.classList.remove('locked');
+            pendingButton.classList.add('unlocked');
+            pendingButton.textContent = '⬇ Download ' + pendingQuality + ' Sekarang';
+            pendingButton.removeAttribute('data-locked');
+          }
+          showToast('Pop-up selesai! Download ' + pendingQuality + ' dimulai…');
+          doDownload(pendingQuality, pendingKind, pendingButton);
+        });
+      })();
+    </script>
+  </body>
+</html>
