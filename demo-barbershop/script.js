@@ -68,3 +68,33 @@ if (menuToggle && navLinks) {
     }
   });
 }
+
+/* Premium motion: scroll reveal + header shadow */
+(function () {
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var header = document.querySelector("header.site-header");
+  function onScroll() { if (header) header.classList.toggle("scrolled", window.scrollY > 24); }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+  if (reduceMotion || !("IntersectionObserver" in window)) return;
+  document.documentElement.classList.add("js-reveal");
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) { entry.target.classList.add("is-visible"); entry.target.style.transitionDelay = ""; observer.unobserve(entry.target); }
+    });
+  }, { threshold: 0.12, rootMargin: "0px 0px -48px 0px" });
+  window.applyReveals = function () {
+    document.querySelectorAll("main section").forEach(function (s, idx) { if (idx > 0) s.classList.add("reveal"); });
+    document.querySelectorAll(".service-card, .testimonial-card, .quote-card, .gallery-tile, .step-card, .feature-card, .package-card, .portfolio-card, .process-card, .lookbook-card, .product-card, .shipping-item, .faq-item").forEach(function (c) { c.classList.add("reveal"); });
+    document.querySelectorAll(".reveal:not(.is-visible)").forEach(function (el) {
+      var p = el.parentElement;
+      if (p && /grid|list/.test(p.className)) {
+        var kids = Array.prototype.filter.call(p.children, function (c) { return c.classList.contains("reveal"); });
+        var i = kids.indexOf(el);
+        if (i > 0 && i < 6) el.style.transitionDelay = (i * 70) + "ms";
+      }
+      observer.observe(el);
+    });
+  };
+  window.applyReveals();
+})();

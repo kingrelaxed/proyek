@@ -213,3 +213,54 @@ h2 { margin-bottom: 0; font-size: clamp(39px, 4.5vw, 56px); line-height: 1.1; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
 }
+/* Premium motion system (shared) */
+html{scroll-behavior:smooth}
+header.site-header.scrolled{box-shadow:0 10px 30px rgba(20,16,12,.14)}
+html.js-reveal .reveal{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.22,1,.36,1),transform .8s cubic-bezier(.22,1,.36,1)}
+html.js-reveal .reveal.is-visible{opacity:1;transform:none}
+@keyframes heroUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+@keyframes heroArtIn{from{opacity:0;transform:translateY(18px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.hero-copy > *{animation:heroUp .8s cubic-bezier(.22,1,.36,1) both}
+.hero-copy > *:nth-child(2){animation-delay:.08s}
+.hero-copy > *:nth-child(3){animation-delay:.16s}
+.hero-copy > *:nth-child(4){animation-delay:.24s}
+.hero-copy > *:nth-child(5){animation-delay:.32s}
+.hero-art,.hero-visual{animation:heroArtIn 1s cubic-bezier(.22,1,.36,1) .15s both}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}html.js-reveal .reveal{opacity:1;transform:none;transition:none}.hero-copy > *,.hero-art,.hero-visual{animation:none}}
+html.js-reveal .reveal.is-visible{transition:opacity .8s cubic-bezier(.22,1,.36,1),transform .35s ease,background-color .3s ease,box-shadow .35s ease,border-color .3s ease}
+
+/* ==== Premium upgrade: Barber Senja ==== */
+.hero {
+background: radial-gradient(900px 420px at 85% -10%, rgba(184,94,61,0.45), transparent 60%), radial-gradient(700px 380px at -10% 110%, rgba(214,164,94,0.28), transparent 60%), linear-gradient(155deg, #2a1c10 0%, #1c130a 55%, #241708 100%);
+color: #f6efe3;
+overflow: hidden;
+}
+.hero h1 { font-size: clamp(58px, 6.4vw, 84px); color: #faf3e6; }
+.hero h1 em { background: linear-gradient(100deg, #e8a06a, #d98a4b 45%, #f0c98a); -webkit-background-clip: text; background-clip: text; color: transparent; }
+h2 em { background: linear-gradient(100deg, var(--rust), #d9a05f); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.hero .hero-description { color: rgba(246,239,227,0.85); font-size: 15px; }
+.hero .eyebrow { display: inline-flex; border: 1px solid rgba(238,195,154,0.4); background: rgba(0,0,0,0.25); color: #eec39a; padding: 8px 14px; border-radius: 999px; }
+.hero .text-link { color: #f6efe3; }
+.hero .hero-note { color: rgba(246,239,227,0.75); }
+.hero .hero-note strong { color: #f6efe3; }
+.hero .scroll-cue { color: rgba(246,239,227,0.6); }
+.hero-art { border-radius: 28px; box-shadow: 0 30px 60px rgba(0,0,0,0.45); }
+main section h2::after { content: ""; display: block; width: 56px; height: 3px; margin-top: 18px; background: linear-gradient(90deg, var(--rust), #e0a370); border-radius: 2px; }
+.service-card { transition: transform .35s ease, background-color .3s ease, box-shadow .35s ease; }
+.service-card:hover { background: rgba(255,255,255,0.65); transform: translateY(-4px); box-shadow: 0 16px 32px rgba(41,35,31,0.12); }
+.service-card:hover .service-icon { transform: scale(1.18); }
+.service-icon { transition: transform .35s ease; }
+.testimonial-card:hover, .quote-card:hover { transform: translateY(-5px); box-shadow: 0 18px 36px rgba(41,35,31,0.14); border-color: var(--rust); }
+.gallery-tile { transition: transform .35s ease, box-shadow .35s ease; }
+.gallery-tile:hover { transform: translateY(-4px) scale(1.02); box-shadow: 0 16px 30px rgba(41,35,31,0.16); }
+.gallery-tile:hover .tile-emoji { transform: scale(1.12); }
+.tile-emoji { transition: transform .35s ease; }
+.button { box-shadow: 0 12px 26px rgba(184,94,61,0.35); transition: transform .25s ease, box-shadow .25s ease, background-color .2s ease; }
+.button:hover { transform: translateY(-2px); box-shadow: 0 16px 32px rgba(184,94,61,0.45); }
+.marquee { background: #241708; border-top: 1px solid rgba(238,195,154,0.25); border-bottom: 1px solid rgba(238,195,154,0.25); overflow: hidden; padding: 14px 0; }
+.marquee-track { display: flex; width: max-content; animation: marquee 26s linear infinite; }
+.marquee-item { padding-right: 28px; color: #eec39a; font-family: var(--serif); font-size: 15px; letter-spacing: .14em; text-transform: uppercase; white-space: nowrap; }
+.marquee-item::after { content: "\2726"; margin-left: 28px; color: var(--rust); }
+@keyframes marquee { to { transform: translateX(-50%); } }
+@media (max-width: 700px) { .hero h1 { font-size: clamp(44px, 11vw, 58px); } }
