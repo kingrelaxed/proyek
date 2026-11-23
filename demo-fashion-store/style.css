@@ -241,3 +241,41 @@ h2 { font-size: clamp(38px, 4.5vw, 54px); line-height: 1.08; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
 }
+/* Premium motion system (shared) */
+html{scroll-behavior:smooth}
+header.site-header.scrolled{box-shadow:0 10px 30px rgba(20,16,12,.14)}
+html.js-reveal .reveal{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.22,1,.36,1),transform .8s cubic-bezier(.22,1,.36,1)}
+html.js-reveal .reveal.is-visible{opacity:1;transform:none}
+@keyframes heroUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+@keyframes heroArtIn{from{opacity:0;transform:translateY(18px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.hero-copy > *{animation:heroUp .8s cubic-bezier(.22,1,.36,1) both}
+.hero-copy > *:nth-child(2){animation-delay:.08s}
+.hero-copy > *:nth-child(3){animation-delay:.16s}
+.hero-copy > *:nth-child(4){animation-delay:.24s}
+.hero-copy > *:nth-child(5){animation-delay:.32s}
+.hero-art,.hero-visual{animation:heroArtIn 1s cubic-bezier(.22,1,.36,1) .15s both}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}html.js-reveal .reveal{opacity:1;transform:none;transition:none}.hero-copy > *,.hero-art,.hero-visual{animation:none}}
+html.js-reveal .reveal.is-visible{transition:opacity .8s cubic-bezier(.22,1,.36,1),transform .35s ease,background-color .3s ease,box-shadow .35s ease,border-color .3s ease}
+
+.art-shorts { --art-bg: linear-gradient(140deg, #cfd8e8, #8ba0c2); }
+.art-blazer { --art-bg: linear-gradient(140deg, #e6d9c8, #b39a78); }
+.art-scarf { --art-bg: linear-gradient(140deg, #e8d8de, #c39aab); }
+.art-hat { --art-bg: linear-gradient(140deg, #f2e3c2, #d9b96e); }
+.hero { background: radial-gradient(700px 320px at 88% -10%, rgba(201,120,98,0.22), transparent 60%), radial-gradient(600px 300px at -8% 108%, rgba(217,160,95,0.2), transparent 60%), linear-gradient(180deg, #f6f2ec, #f1e9dd); }
+.hero h1 { font-size: clamp(2.8rem, 6.4vw, 4.4rem); line-height: 1.05; }
+.hero h1 em { background: linear-gradient(100deg, #c97862, #d9a05f); -webkit-background-clip: text; background-clip: text; color: transparent; }
+@keyframes floatTiltL { 0%, 100% { transform: rotate(-7deg) translateY(0); } 50% { transform: rotate(-7deg) translateY(-8px); } }
+@keyframes floatTiltR { 0%, 100% { transform: rotate(7deg) translateY(0); } 50% { transform: rotate(7deg) translateY(-8px); } }
+.hero-product-dress { animation: floatTiltL 5.5s ease-in-out infinite; }
+.hero-product-bag { animation: floatTiltR 5.5s ease-in-out 1.2s infinite; }
+.section-heading h2::after { content: ""; display: block; width: 56px; height: 4px; margin-top: 14px; background: linear-gradient(90deg, var(--coral), #d9a05f); border-radius: 2px; }
+.product-card { transition: transform 0.35s ease, box-shadow 0.35s ease; }
+.product-card:hover { transform: translateY(-4px); box-shadow: 0 16px 34px rgba(64,48,41,0.16); }
+.testimonial-card { transition: transform 0.35s ease, box-shadow 0.35s ease; }
+.testimonial-card:hover { transform: translateY(-4px); box-shadow: 0 14px 30px rgba(64,48,41,0.14); }
+.shipping-item { transition: transform 0.35s ease, box-shadow 0.35s ease; }
+.shipping-item:hover { transform: translateY(-3px); box-shadow: 0 12px 26px rgba(64,48,41,0.12); }
+.button { box-shadow: 0 10px 24px rgba(201,120,98,0.35); }
+.button:hover { transform: translateY(-2px); }
+@media (max-width: 700px) { .hero h1 { font-size: clamp(2.4rem, 10vw, 3rem); } }

@@ -13,6 +13,11 @@ const PRODUCTS = [
 { id: "canvas-tote", name: { en: "Canvas Tote", id: "Tas Kanvas" }, category: "accessories", categoryName: { en: "Accessories", id: "Aksesoris" }, price: 16, emoji: "🛍️", art: "art-tote", description: { en: "Roomy, sturdy, and ready for anything.", id: "Luas, kuat, dan siap untuk apa saja." } },
 { id: "leather-loafers", name: { en: "Leather Loafers", id: "Loafers Kulit" }, category: "shoes", categoryName: { en: "Shoes", id: "Sepatu" }, price: 35, emoji: "👞", art: "art-loafers", description: { en: "Smart, comfy, and made to last.", id: "Rapi, nyaman, dan awet dipakai." } },
 { id: "summer-sandals", name: { en: "Summer Sandals", id: "Sandal Musim Panas" }, category: "shoes", categoryName: { en: "Shoes", id: "Sepatu" }, price: 14, emoji: "🩴", art: "art-sandals", description: { en: "Light steps for sunny days.", id: "Langkah ringan untuk hari yang cerah." } },
+
+  { id: "denim-shorts", name: { en: "Denim Shorts", id: "Celana Pendek Denim" }, category: "clothes", categoryName: { en: "Clothes", id: "Pakaian" }, price: 16, emoji: "🩳", art: "art-shorts", description: { en: "Easy, breezy, and made for warm days.", id: "Ringan dan nyaman untuk hari yang hangat." } },
+  { id: "linen-blazer", name: { en: "Linen Blazer", id: "Blazer Linen" }, category: "clothes", categoryName: { en: "Clothes", id: "Pakaian" }, price: 32, emoji: "🧥", art: "art-blazer", description: { en: "Light tailoring with a relaxed fit.", id: "Potongan ringan dengan siluet santai." } },
+  { id: "cotton-scarf", name: { en: "Cotton Scarf", id: "Syal Katun" }, category: "accessories", categoryName: { en: "Accessories", id: "Aksesoris" }, price: 7, emoji: "🧣", art: "art-scarf", description: { en: "Soft cotton, endless ways to wear it.", id: "Katun lembut, banyak cara memakainya." } },
+  { id: "straw-hat", name: { en: "Straw Hat", id: "Topi Jerami" }, category: "accessories", categoryName: { en: "Accessories", id: "Aksesoris" }, price: 12, emoji: "👒", art: "art-hat", description: { en: "Shade with a sunny-day smile.", id: "Penyejuk dengan senyum hari cerah." } },
 ];
 
 const translations = {
@@ -91,6 +96,7 @@ function setLanguage(language) {
   document.querySelector('meta[name="description"]')?.setAttribute("content", language === "en"
     ? "Easygoing everyday style, thoughtfully chosen. Discover Senja Style."
     : "Gaya santai untuk sehari-hari, dipilih dengan sepenuh hati. Temukan Senja Style.");
+var _renderProducts = renderProducts; renderProducts = function () { _renderProducts.apply(null, arguments); if (window.applyReveals) window.applyReveals(); };
   renderProducts();
   renderCart();
   updateProductCount();
@@ -272,3 +278,33 @@ function setupInteractions() {
 
 setLanguage("en");
 setupInteractions();
+
+/* Premium motion: scroll reveal + header shadow */
+(function () {
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var header = document.querySelector("header.site-header");
+  function onScroll() { if (header) header.classList.toggle("scrolled", window.scrollY > 24); }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+  if (reduceMotion || !("IntersectionObserver" in window)) return;
+  document.documentElement.classList.add("js-reveal");
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) { entry.target.classList.add("is-visible"); entry.target.style.transitionDelay = ""; observer.unobserve(entry.target); }
+    });
+  }, { threshold: 0.12, rootMargin: "0px 0px -48px 0px" });
+  window.applyReveals = function () {
+    document.querySelectorAll("main section").forEach(function (s, idx) { if (idx > 0) s.classList.add("reveal"); });
+    document.querySelectorAll(".service-card, .testimonial-card, .quote-card, .gallery-tile, .step-card, .feature-card, .package-card, .portfolio-card, .process-card, .lookbook-card, .product-card, .shipping-item, .faq-item").forEach(function (c) { c.classList.add("reveal"); });
+    document.querySelectorAll(".reveal:not(.is-visible)").forEach(function (el) {
+      var p = el.parentElement;
+      if (p && /grid|list/.test(p.className)) {
+        var kids = Array.prototype.filter.call(p.children, function (c) { return c.classList.contains("reveal"); });
+        var i = kids.indexOf(el);
+        if (i > 0 && i < 6) el.style.transitionDelay = (i * 70) + "ms";
+      }
+      observer.observe(el);
+    });
+  };
+  window.applyReveals();
+})();
