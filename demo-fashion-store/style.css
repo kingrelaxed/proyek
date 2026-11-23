@@ -114,6 +114,12 @@ h2 { font-size: clamp(38px, 4.5vw, 54px); line-height: 1.08; }
 .art-dress { --art-bg: linear-gradient(140deg, #e5c4ba, #c7867b); }
 .art-tee { --art-bg: linear-gradient(140deg, #dfcfad, #c0a981); }
 .art-bag { --art-bg: linear-gradient(140deg, #d1d1c5, #9da38f); }
+.art-jacket { --art-bg: linear-gradient(140deg, #c9d2dd, #8fa3b8); }
+.art-sweater { --art-bg: linear-gradient(140deg, #e8d5c4, #c9a582); }
+.art-satin { --art-bg: linear-gradient(140deg, #e3d3e0, #b48fb0); }
+.art-tote { --art-bg: linear-gradient(140deg, #d6cfc0, #a89a7d); }
+.art-loafers { --art-bg: linear-gradient(140deg, #d8c8b8, #a07d5f); }
+.art-sandals { --art-bg: linear-gradient(140deg, #f0dcc0, #d9a86c); }
 .product-info { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; padding: 12px 1px 0; }
 .product-name { margin: 0 0 5px; font-family: var(--serif); font-size: 17px; font-weight: 400; }
 .product-category-text { color: var(--muted); font-size: 8px; }

@@ -7,6 +7,12 @@ const PRODUCTS = [
   { id: "floral-dress", name: { en: "Floral Dress", id: "Gaun Floral" }, category: "clothes", categoryName: { en: "Clothes", id: "Pakaian" }, price: 20, emoji: "👗", art: "art-dress", description: { en: "A little bloom for any day.", id: "Sentuhan bunga untuk hari-harimu." } },
   { id: "plain-t-shirt", name: { en: "Plain T-Shirt", id: "Kaos Polos" }, category: "clothes", categoryName: { en: "Clothes", id: "Pakaian" }, price: 8, emoji: "👕", art: "art-tee", description: { en: "The one you'll wear on repeat.", id: "Andalan yang ingin dipakai terus." } },
   { id: "sling-bag", name: { en: "Sling Bag", id: "Tas Selempang" }, category: "accessories", categoryName: { en: "Accessories", id: "Aksesori" }, price: 13, emoji: "👜", art: "art-bag", description: { en: "A just-right size for little outings.", id: "Ukuran pas untuk jalan-jalan santai." } },
+{ id: "denim-jacket", name: { en: "Denim Jacket", id: "Jaket Denim" }, category: "clothes", categoryName: { en: "Clothes", id: "Pakaian" }, price: 28, emoji: "🧥", art: "art-jacket", description: { en: "A classic layer for every season.", id: "Lapisan klasik untuk setiap musim." } },
+{ id: "knit-sweater", name: { en: "Knit Sweater", id: "Sweater Rajut" }, category: "clothes", categoryName: { en: "Clothes", id: "Pakaian" }, price: 22, emoji: "🧶", art: "art-sweater", description: { en: "Soft, warm, and made for slow mornings.", id: "Lembut, hangat, dan cocok untuk pagi yang santai." } },
+{ id: "satin-hijab", name: { en: "Satin Hijab", id: "Hijab Satin" }, category: "hijab", categoryName: { en: "Hijab", id: "Hijab" }, price: 9, emoji: "🧕", art: "art-satin", description: { en: "A soft shine for special days.", id: "Kilau lembut untuk hari istimewa." } },
+{ id: "canvas-tote", name: { en: "Canvas Tote", id: "Tas Kanvas" }, category: "accessories", categoryName: { en: "Accessories", id: "Aksesoris" }, price: 16, emoji: "🛍️", art: "art-tote", description: { en: "Roomy, sturdy, and ready for anything.", id: "Luas, kuat, dan siap untuk apa saja." } },
+{ id: "leather-loafers", name: { en: "Leather Loafers", id: "Loafers Kulit" }, category: "shoes", categoryName: { en: "Shoes", id: "Sepatu" }, price: 35, emoji: "👞", art: "art-loafers", description: { en: "Smart, comfy, and made to last.", id: "Rapi, nyaman, dan awet dipakai." } },
+{ id: "summer-sandals", name: { en: "Summer Sandals", id: "Sandal Musim Panas" }, category: "shoes", categoryName: { en: "Shoes", id: "Sepatu" }, price: 14, emoji: "🩴", art: "art-sandals", description: { en: "Light steps for sunny days.", id: "Langkah ringan untuk hari yang cerah." } },
 ];
 
 const translations = {
@@ -118,7 +124,7 @@ function renderProducts() {
 
     const artLabel = document.createElement("span");
     artLabel.className = "product-art-label";
-    artLabel.textContent = `SENJA / 0${index + 1}`;
+    artLabel.textContent = `SENJA / ${String(index + 1).padStart(2, "0")}`;
     art.append(artLabel);
 
     const categoryBadge = document.createElement("span");
