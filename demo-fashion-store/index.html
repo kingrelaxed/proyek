@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Easygoing everyday style, thoughtfully chosen. Discover Senja Style." />
+    <meta name="theme-color" content="#f6f2ec" />
+    <title>Senja Style — Wear Your Feeling</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div class="announcement">
+      <p data-en="A little something for your first order: free shipping over $40" data-id="Hadiah kecil untuk pesanan pertamamu: gratis ongkir di atas $40">A little something for your first order: free shipping over $40</p>
+    </div>
+    <header class="site-header">
+      <nav class="nav container" aria-label="Main navigation">
+        <a class="brand" href="#home" aria-label="Senja Style home">
+          <span class="brand-mark" aria-hidden="true">s.</span>
+          <span>senja<span class="brand-light">style</span></span>
+        </a>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+        <div class="nav-links" id="nav-links">
+          <a href="#shop" data-en="Shop" data-id="Belanja">Shop</a>
+          <a href="#story" data-en="Our story" data-id="Cerita kami">Our story</a>
+          <a href="#shipping" data-en="Shipping" data-id="Pengiriman">Shipping</a>
+          <div class="nav-actions">
+            <button class="language-toggle" id="language-toggle" type="button" aria-label="Switch to Indonesian"><span data-en="ID" data-id="EN">ID</span></button>
+            <button class="cart-toggle" id="cart-toggle" type="button" aria-expanded="false" aria-controls="cart-panel">
+              <span data-en="Bag" data-id="Tas">Bag</span><span class="cart-count" id="cart-count" aria-live="polite">0</span>
+            </button>
+          </div>
+        </div>
+        <div class="cart-panel" id="cart-panel" aria-hidden="true">
+          <div class="cart-heading">
+            <h2 data-en="Your bag" data-id="Tas belanjamu">Your bag</h2>
+            <button class="cart-close" id="cart-close" type="button" aria-label="Close bag">×</button>
+          </div>
+          <div class="cart-items" id="cart-items"></div>
+          <p class="cart-empty" id="cart-empty" data-en="Your bag is taking a little break." data-id="Tas belanjamu sedang beristirahat.">Your bag is taking a little break.</p>
+          <div class="cart-total"><span data-en="Subtotal" data-id="Subtotal">Subtotal</span><strong id="cart-subtotal">$0</strong></div>
+          <a class="button cart-checkout" id="cart-checkout" href="https://wa.me/6281234567890" target="_blank" rel="noopener noreferrer" data-en="Order via WhatsApp" data-id="Pesan via WhatsApp">Order via WhatsApp</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" id="home">
+        <div class="container hero-layout">
+          <div class="hero-copy">
+            <p class="eyebrow"><span class="eyebrow-dot"></span><span data-en="MADE FOR YOUR EVERYDAY" data-id="UNTUK HARI-HARIMU">MADE FOR YOUR EVERYDAY</span></p>
+            <h1><span data-en="Good style, no second guessing." data-id="Gaya yang pas, tanpa banyak pikir.">Good style, no second guessing.</span><br /><em data-en="Wear your feeling." data-id="Pakai yang kamu rasa.">Wear your feeling.</em></h1>
+            <p class="hero-description" data-en="Easygoing pieces, picked with care. Find your new favorites for slow mornings, busy days, and all the in-between." data-id="Pilihan santai yang dikurasi dengan hati. Temukan favorit barumu untuk pagi yang tenang, hari yang sibuk, dan semua momen di antaranya.">Easygoing pieces, picked with care. Find your new favorites for slow mornings, busy days, and all the in-between.</p>
+            <div class="hero-actions">
+              <a class="button" href="#shop"><span data-en="Find your favorite" data-id="Temukan favoritmu">Find your favorite</span><span aria-hidden="true">↗</span></a>
+              <a class="quiet-link" href="#story"><span data-en="A little about us" data-id="Sedikit tentang kami">A little about us</span><span aria-hidden="true">↓</span></a>
+            </div>
+            <div class="hero-proof"><span class="proof-stars" aria-label="5 out of 5 stars">★★★★★</span><span data-en="Little details, lots of love." data-id="Detail kecil, cinta yang besar.">Little details, lots of love.</span></div>
+          </div>
+          <div class="hero-art" role="img" aria-label="A playful fashion illustration made with CSS and emoji">
+            <div class="art-sun"></div>
+            <div class="art-shape"></div>
+            <span class="art-spark art-spark-one" aria-hidden="true">✦</span>
+            <span class="art-spark art-spark-two" aria-hidden="true">✧</span>
+            <div class="hero-product hero-product-dress"><span aria-hidden="true">👗</span><small>YOUR NEW GO-TO</small></div>
+            <div class="hero-product hero-product-bag"><span aria-hidden="true">👜</span></div>
+            <div class="hero-art-label"><span>SS / 001</span><span>THE EVERYDAY EDIT</span></div>
+            <div class="art-note"><span class="note-heart">♡</span><span><strong data-en="Made to feel like you" data-id="Dibuat untuk jadi dirimu">Made to feel like you</strong><small data-en="A little joy, every day" data-id="Sedikit bahagia, setiap hari">A little joy, every day</small></span></div>
+          </div>
+        </div>
+        <div class="hero-bottom container"><span data-en="GOOD THINGS, GOOD FEELINGS" data-id="PILIHAN BAIK, PERASAAN BAIK">GOOD THINGS, GOOD FEELINGS</span><span class="hero-bottom-line"></span><span data-en="A SMALL SHOP WITH A BIG HEART" data-id="TOKO KECIL DENGAN HATI BESAR">A SMALL SHOP WITH A BIG HEART</span></div>
+      </section>
+
+      <section class="shop-section section-pad" id="shop">
+        <div class="container">
+          <div class="section-heading shop-heading">
+            <div><p class="eyebrow" data-en="THE GOOD STUFF" data-id="PILIHAN FAVORIT">THE GOOD STUFF</p><h2 data-en="Pieces you'll reach for, <em>again and again.</em>" data-id="Pilihan yang akan kamu pakai, <em>lagi dan lagi.</em>">Pieces you'll reach for, <em>again and again.</em></h2></div>
+            <p class="section-intro" data-en="Thoughtful staples with a little something extra. Take a look around." data-id="Pilihan esensial dengan sentuhan istimewa. Yuk, lihat-lihat dulu.">Thoughtful staples with a little something extra. Take a look around.</p>
+          </div>
+          <div class="shop-controls">
+            <div class="filter-list" role="group" aria-label="Filter products by category">
+              <button class="filter-button is-active" type="button" data-filter="all" data-en="Everything" data-id="Semua">Everything</button>
+              <button class="filter-button" type="button" data-filter="clothes" data-en="Clothes" data-id="Pakaian">Clothes</button>
+              <button class="filter-button" type="button" data-filter="hijab" data-en="Hijab" data-id="Hijab">Hijab</button>
+              <button class="filter-button" type="button" data-filter="shoes" data-en="Shoes" data-id="Sepatu">Shoes</button>
+            </div>
+            <span class="product-count" id="product-count" aria-live="polite">6 pieces</span>
+          </div>
+          <div class="product-grid" id="product-grid"></div>
+          <p class="cart-feedback" id="cart-feedback" aria-live="polite"></p>
+        </div>
+      </section>
+
+      <section class="story-section section-pad" id="story">
+        <div class="container story-layout">
+          <div class="story-art" aria-hidden="true">
+            <div class="story-checker"></div>
+            <div class="story-note"><span>WITH LOVE</span><strong>Find your<br />own kind<br />of lovely.</strong><span>✳ SENJA STYLE</span></div>
+            <span class="story-flower">✿</span>
+          </div>
+          <div class="story-copy">
+            <p class="eyebrow" data-en="A NOTE FROM US" data-id="SEPESAN DARI KAMI">A NOTE FROM US</p>
+            <h2 data-en="Style should feel like <em>coming home.</em>" data-id="Gaya seharusnya terasa seperti <em>pulang.</em>">Style should feel like <em>coming home.</em></h2>
+            <p data-en="Senja Style started with a simple thought: getting dressed can be one of the nicest parts of your day. We bring together lovely, wearable pieces that feel good to wear and easy to make your own." data-id="Senja Style berawal dari sebuah pemikiran sederhana: memilih pakaian bisa menjadi salah satu momen paling menyenangkan dalam harimu. Kami menghadirkan pilihan yang cantik, nyaman, dan mudah jadi gayamu sendiri.">Senja Style started with a simple thought: getting dressed can be one of the nicest parts of your day. We bring together lovely, wearable pieces that feel good to wear and easy to make your own.</p>
+            <a class="quiet-link" href="#shipping"><span data-en="The little details" data-id="Info selengkapnya">The little details</span><span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </section>
+
+      <section class="testimonials-section section-pad">
+        <div class="container">
+          <div class="section-heading">
+            <div><p class="eyebrow" data-en="KIND WORDS" data-id="CERITA BAIK">KIND WORDS</p><h2 data-en="A little love from <em>our people.</em>" data-id="Sedikit cinta dari <em>teman-teman kami.</em>">A little love from <em>our people.</em></h2></div>
+            <span class="review-rating">★★★★★ <small data-en="Little notes from happy customers" data-id="Cerita kecil dari pelanggan bahagia">Little notes from happy customers</small></span>
+          </div>
+          <div class="testimonial-grid">
+            <article class="testimonial-card"><span class="quote-mark" aria-hidden="true">“</span><blockquote data-en="The linen shirt is my new favorite. Lovely fabric, and it arrived wrapped so thoughtfully!" data-id="Kemeja linennya jadi favorit baruku. Bahannya cantik, dan paketnya dibungkus dengan penuh perhatian!">The linen shirt is my new favorite. Lovely fabric, and it arrived wrapped so thoughtfully!</blockquote><div class="customer"><span class="customer-avatar avatar-peach">A</span><span><strong>Amelia R.</strong><small data-en="A happy customer" data-id="Pelanggan bahagia">A happy customer</small></span></div></article>
+            <article class="testimonial-card"><span class="quote-mark" aria-hidden="true">“</span><blockquote data-en="Finally found a voile hijab that feels light and stays comfy all day. I got two more!" data-id="Akhirnya ketemu hijab voile yang ringan dan nyaman seharian. Aku beli dua lagi!">Finally found a voile hijab that feels light and stays comfy all day. I got two more!</blockquote><div class="customer"><span class="customer-avatar avatar-green">N</span><span><strong>Nadia P.</strong><small data-en="A happy customer" data-id="Pelanggan bahagia">A happy customer</small></span></div></article>
+            <article class="testimonial-card"><span class="quote-mark" aria-hidden="true">“</span><blockquote data-en="Such a sweet little shop. The sneakers are even more beautiful in person. So glad I found Senja!" data-id="Toko kecil yang menyenangkan. Sepatunya lebih cantik saat dilihat langsung. Senang banget menemukan Senja!">Such a sweet little shop. The sneakers are even more beautiful in person. So glad I found Senja!</blockquote><div class="customer"><span class="customer-avatar avatar-lilac">S</span><span><strong>Sasha M.</strong><small data-en="A happy customer" data-id="Pelanggan bahagia">A happy customer</small></span></div></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="shipping-section section-pad" id="shipping">
+        <div class="container shipping-layout">
+          <div>
+            <p class="eyebrow" data-en="A LITTLE NOTE ON DELIVERY" data-id="INFO SINGKAT PENGIRIMAN">A LITTLE NOTE ON DELIVERY</p>
+            <h2 data-en="Good things are <em>on their way.</em>" data-id="Hal baik sedang <em>menuju ke rumahmu.</em>">Good things are <em>on their way.</em></h2>
+            <p class="shipping-description" data-en="We pack every order with care and send it your way as soon as we can. Here’s what to expect:" data-id="Setiap pesanan kami kemas dengan hati-hati dan segera dikirimkan untukmu. Ini info yang perlu kamu tahu:">We pack every order with care and send it your way as soon as we can. Here’s what to expect:</p>
+            <a class="button button-dark" href="https://wa.me/6281234567890" target="_blank" rel="noopener noreferrer"><span data-en="Ask us anything" data-id="Tanya apa saja">Ask us anything</span><span aria-hidden="true">↗</span></a>
+          </div>
+          <div class="shipping-details">
+            <article class="shipping-item"><span class="shipping-icon" aria-hidden="true">📦</span><div><h3 data-en="Carefully packed" data-id="Dikemas dengan hati-hati">Carefully packed</h3><p data-en="Every order gets a little extra love before it leaves us." data-id="Setiap pesanan mendapat perhatian ekstra sebelum dikirim.">Every order gets a little extra love before it leaves us.</p></div></article>
+            <article class="shipping-item"><span class="shipping-icon" aria-hidden="true">♡</span><div><h3 data-en="Free shipping over $40" data-id="Gratis ongkir di atas $40">Free shipping over $40</h3><p data-en="A little thank-you from us when your order reaches $40." data-id="Hadiah kecil dari kami untuk pesanan senilai $40 atau lebih.">A little thank-you from us when your order reaches $40.</p></div></article>
+            <article class="shipping-item"><span class="shipping-icon" aria-hidden="true">↗</span><div><h3 data-en="Delivery in 2–5 days" data-id="Pesanan tiba dalam 2–5 hari">Delivery in 2–5 days</h3><p data-en="Estimated time after your order is on its way." data-id="Perkiraan waktu setelah pesananmu dikirim.">Estimated time after your order is on its way.</p></div></article>
+            <p class="shipping-footnote" data-en="Delivery times may vary depending on your location." data-id="Waktu pengiriman dapat berbeda tergantung lokasi tujuan.">Delivery times may vary depending on your location.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="bottom-cta">
+        <div class="container bottom-cta-inner">
+          <div><p class="eyebrow" data-en="A GOOD DAY STARTS HERE" data-id="HARI YANG MENYENANGKAN DIMULAI DI SINI">A GOOD DAY STARTS HERE</p><h2 data-en="Your next favorite is <em>waiting.</em>" data-id="Favorit barumu sedang <em>menunggu.</em>">Your next favorite is <em>waiting.</em></h2></div>
+          <a class="button button-dark" href="#shop"><span data-en="Take a look around" data-id="Yuk, lihat-lihat">Take a look around</span><span aria-hidden="true">↗</span></a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-main">
+        <a class="brand" href="#home"><span class="brand-mark" aria-hidden="true">s.</span><span>senja<span class="brand-light">style</span></span></a>
+        <p data-en="Easygoing pieces, chosen with care." data-id="Pilihan santai, dikurasi dengan hati.">Easygoing pieces, chosen with care.</p>
+        <a class="footer-whatsapp" href="https://wa.me/6281234567890" target="_blank" rel="noopener noreferrer"><span data-en="Say hello on WhatsApp" data-id="Sapa kami di WhatsApp">Say hello on WhatsApp</span> ↗</a>
+      </div>
+      <div class="container footer-bottom"><span>© 2025 Senja Style. <span data-en="Made with care." data-id="Dibuat dengan sepenuh hati.">Made with care.</span></span><a href="#home" data-en="BACK TO TOP ↑" data-id="KEMBALI KE ATAS ↑">BACK TO TOP ↑</a></div>
+    </footer>
+  </body>
+</html>
