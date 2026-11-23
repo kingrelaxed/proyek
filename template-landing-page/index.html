@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Landing page bisnis yang siap disesuaikan dengan kebutuhan usahamu." />
+    <meta name="theme-color" content="#f7f6f2" />
+    <title>Landing Page Bisnis</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav container" aria-label="Navigasi utama">
+        <a class="brand" href="#beranda" aria-label="Kembali ke beranda">
+          <span class="brand-symbol" aria-hidden="true">✳</span>
+          <span data-business="name">Nama Usaha</span>
+        </a>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Buka menu">
+          <span></span><span></span><span></span>
+        </button>
+        <div class="nav-links" id="nav-links">
+          <a href="#fitur">Keunggulan</a>
+          <a href="#layanan">Layanan</a>
+          <a href="#harga">Harga</a>
+          <a href="#faq">FAQ</a>
+          <a class="button button-small" href="#kontak">Konsultasi <span aria-hidden="true">↗</span></a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" id="beranda">
+        <div class="container hero-layout">
+          <div class="hero-copy">
+            <p class="eyebrow"><span class="eyebrow-dot"></span><span id="hero-eyebrow">SOLUSI YANG TEPAT UNTUKMU</span></p>
+            <h1 id="hero-title">Lebih mudah mencapai <em>tujuanmu.</em></h1>
+            <p class="hero-description" id="hero-description">Kami membantu kamu mendapatkan layanan berkualitas dengan proses yang praktis, ramah, dan transparan.</p>
+            <div class="hero-actions">
+              <a class="button" href="#kontak" id="hero-cta">Mulai sekarang <span aria-hidden="true">↗</span></a>
+              <a class="quiet-link" href="#fitur">Kenali keunggulan kami <span aria-hidden="true">↓</span></a>
+            </div>
+            <div class="trust-note"><span class="trust-check" aria-hidden="true">✓</span><span id="hero-proof">Dipercaya pelanggan yang mengutamakan kualitas</span></div>
+          </div>
+          <div class="hero-visual" aria-hidden="true">
+            <div class="visual-orbit orbit-one"></div>
+            <div class="visual-orbit orbit-two"></div>
+            <div class="visual-sun"></div>
+            <div class="visual-card">
+              <span class="visual-card-icon">✳</span>
+              <span class="visual-card-label">DIBUAT UNTUKMU</span>
+              <strong>Ide baik,<br />hasil nyata.</strong>
+              <span class="visual-card-line"></span>
+              <span class="visual-card-foot">LANGKAH KECIL, DAMPAK BESAR</span>
+            </div>
+            <div class="floating-note"><span class="floating-check">✓</span><span><strong>Tanpa ribet</strong><small>Proses yang jelas</small></span></div>
+            <span class="visual-spark spark-a">✦</span>
+            <span class="visual-spark spark-b">✧</span>
+          </div>
+        </div>
+        <div class="hero-bottom container"><span>LAYANAN YANG BISA KAMU ANDALKAN</span><span class="hero-bottom-line"></span><span id="hero-location">MELAYANI DENGAN SEPENUH HATI</span></div>
+      </section>
+
+      <section class="section features-section" id="fitur">
+        <div class="container">
+          <div class="section-heading">
+            <div><p class="eyebrow">KENAPA MEMILIH KAMI</p><h2>Hal baik dimulai<br />dari <em>pilihan tepat.</em></h2></div>
+            <p class="section-intro">Kami percaya pengalaman terbaik datang dari perhatian pada hal-hal kecil. Inilah yang membuat layanan kami berbeda.</p>
+          </div>
+          <div class="feature-grid" id="feature-list"></div>
+        </div>
+      </section>
+
+      <section class="section services-section" id="layanan">
+        <div class="container">
+          <div class="section-heading centered-heading">
+            <div><p class="eyebrow">APA YANG KAMI TAWARKAN</p><h2>Layanan untuk setiap <em>kebutuhan.</em></h2></div>
+            <p class="section-intro">Pilih bantuan yang paling sesuai. Kami siap menemani dari awal hingga selesai.</p>
+          </div>
+          <div class="service-grid" id="service-list"></div>
+        </div>
+      </section>
+
+      <section class="section pricing-section" id="harga">
+        <div class="container">
+          <div class="section-heading pricing-heading">
+            <div><p class="eyebrow">PILIH PAKETMU</p><h2>Jelas harganya,<br /><em>nyaman pilihnya.</em></h2></div>
+            <p class="section-intro">Tanpa biaya tersembunyi. Pilih paket yang paling pas untuk kebutuhan dan rencanamu.</p>
+          </div>
+          <div class="pricing-grid" id="package-list"></div>
+          <p class="pricing-note">Butuh sesuatu yang berbeda? <a href="#kontak">Ceritakan kebutuhanmu <span aria-hidden="true">↗</span></a></p>
+        </div>
+      </section>
+
+      <section class="section testimonials-section" id="testimoni">
+        <div class="container">
+          <div class="section-heading">
+            <div><p class="eyebrow">CERITA PELANGGAN</p><h2>Bukan cuma kata <em>kami.</em></h2></div>
+            <div class="rating"><span aria-label="5 dari 5 bintang">★★★★★</span><small>Pengalaman yang berarti</small></div>
+          </div>
+          <div class="testimonial-grid" id="testimonial-list"></div>
+        </div>
+      </section>
+
+      <section class="section faq-section" id="faq">
+        <div class="container faq-layout">
+          <div class="faq-intro">
+            <p class="eyebrow">ADA YANG INGIN DITANYAKAN?</p>
+            <h2>Jawaban untuk<br />rasa <em>penasaranmu.</em></h2>
+            <p>Belum menemukan jawaban yang kamu cari? Tim kami siap membantu.</p>
+            <a class="quiet-link" id="faq-contact-link" href="#kontak">Hubungi kami <span aria-hidden="true">↗</span></a>
+          </div>
+          <div class="faq-list" id="faq-list"></div>
+        </div>
+      </section>
+
+      <section class="contact-section" id="kontak">
+        <div class="container contact-layout">
+          <div>
+            <p class="eyebrow">LANGKAH BERIKUTNYA DIMULAI DI SINI</p>
+            <h2>Siap mulai sesuatu<br />yang <em>lebih baik?</em></h2>
+            <p class="contact-description">Ceritakan kebutuhanmu. Kami akan bantu menemukan solusi yang tepat tanpa komitmen.</p>
+            <a class="button button-light" id="contact-cta" href="https://wa.me/6281234567890">Ngobrol dengan kami <span aria-hidden="true">↗</span></a>
+          </div>
+          <div class="contact-card">
+            <span class="contact-card-label">KAMI SIAP MEMBANTU</span>
+            <a class="contact-method" id="contact-whatsapp" href="https://wa.me/6281234567890"><span class="contact-method-icon" aria-hidden="true">↗</span><span><small>WhatsApp</small><strong id="contact-phone">+62 812-3456-7890</strong></span></a>
+            <a class="contact-method" id="contact-email-link" href="mailto:halo@namabisnis.id"><span class="contact-method-icon" aria-hidden="true">✉</span><span><small>Email</small><strong id="contact-email">halo@namabisnis.id</strong></span></a>
+            <div class="contact-method contact-address"><span class="contact-method-icon" aria-hidden="true">⌖</span><span><small>Lokasi</small><strong id="contact-address">Jakarta, Indonesia</strong></span></div>
+            <div class="contact-card-footer"><span class="contact-live-dot"></span> Biasanya membalas dalam satu hari kerja</div>
+          </div>
+        </div>
+        <div class="contact-decoration" aria-hidden="true">✳</div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-main">
+        <a class="brand footer-brand" href="#beranda"><span class="brand-symbol" aria-hidden="true">✳</span><span data-business="name">Nama Usaha</span></a>
+        <p id="footer-tagline">Layanan yang terasa lebih personal.</p>
+        <a class="footer-top" href="#beranda">KEMBALI KE ATAS ↑</a>
+      </div>
+      <div class="container footer-bottom"><span>© <span id="current-year"></span> <span data-business="name">Nama Usaha</span>. Hak cipta dilindungi.</span><span>Dibuat dengan sepenuh hati.</span></div>
+    </footer>
+  </body>
+</html>
