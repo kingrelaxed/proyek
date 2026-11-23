@@ -1,30 +1,31 @@
 <!doctype html>
-<html lang="id">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Landing page bisnis yang siap disesuaikan dengan kebutuhan usahamu." />
+    <meta name="description" content="Thoughtful services, made to fit your business and your needs." />
     <meta name="theme-color" content="#f7f6f2" />
-    <title>Landing Page Bisnis</title>
+    <title>Ruang Tumbuh — Better, Together</title>
     <link rel="stylesheet" href="style.css" />
     <script src="script.js" defer></script>
   </head>
   <body>
     <header class="site-header">
-      <nav class="nav container" aria-label="Navigasi utama">
-        <a class="brand" href="#beranda" aria-label="Kembali ke beranda">
+      <nav class="nav container" aria-label="Main navigation">
+        <a class="brand" href="#beranda" aria-label="Ruang Tumbuh home">
           <span class="brand-symbol" aria-hidden="true">✳</span>
-          <span data-business="name">Nama Usaha</span>
+          <span data-business="name">Ruang Tumbuh</span>
         </a>
-        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Buka menu">
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
           <span></span><span></span><span></span>
         </button>
         <div class="nav-links" id="nav-links">
-          <a href="#fitur">Keunggulan</a>
-          <a href="#layanan">Layanan</a>
-          <a href="#harga">Harga</a>
-          <a href="#faq">FAQ</a>
-          <a class="button button-small" href="#kontak">Konsultasi <span aria-hidden="true">↗</span></a>
+          <a href="#fitur" data-en="Why us" data-id="Keunggulan">Why us</a>
+          <a href="#layanan" data-en="Services" data-id="Layanan">Services</a>
+          <a href="#harga" data-en="Pricing" data-id="Harga">Pricing</a>
+          <a href="#faq" data-en="FAQ" data-id="FAQ">FAQ</a>
+          <button class="language-toggle" id="language-toggle" type="button" aria-label="Switch to Indonesian"><span data-en="ID" data-id="EN">ID</span></button>
+          <a class="button button-small" href="#kontak"><span data-en="Let's talk" data-id="Konsultasi">Let's talk</span> <span aria-hidden="true">↗</span></a>
         </div>
       </nav>
     </header>
@@ -33,14 +34,14 @@
       <section class="hero" id="beranda">
         <div class="container hero-layout">
           <div class="hero-copy">
-            <p class="eyebrow"><span class="eyebrow-dot"></span><span id="hero-eyebrow">SOLUSI YANG TEPAT UNTUKMU</span></p>
-            <h1 id="hero-title">Lebih mudah mencapai <em>tujuanmu.</em></h1>
-            <p class="hero-description" id="hero-description">Kami membantu kamu mendapatkan layanan berkualitas dengan proses yang praktis, ramah, dan transparan.</p>
+            <p class="eyebrow"><span class="eyebrow-dot"></span><span id="hero-eyebrow">GOOD THINGS START HERE</span></p>
+            <h1 id="hero-title">A little more <em>you.</em></h1>
+            <p class="hero-description" id="hero-description">We help you get the right support with a process that feels clear, thoughtful, and easy from the start.</p>
             <div class="hero-actions">
-              <a class="button" href="#kontak" id="hero-cta">Mulai sekarang <span aria-hidden="true">↗</span></a>
-              <a class="quiet-link" href="#fitur">Kenali keunggulan kami <span aria-hidden="true">↓</span></a>
+              <a class="button" href="#kontak" id="hero-cta"><span id="hero-cta-label">Let's get started</span> <span aria-hidden="true">↗</span></a>
+              <a class="quiet-link" href="#fitur"><span data-en="Get to know us" data-id="Kenali keunggulan kami">Get to know us</span> <span aria-hidden="true">↓</span></a>
             </div>
-            <div class="trust-note"><span class="trust-check" aria-hidden="true">✓</span><span id="hero-proof">Dipercaya pelanggan yang mengutamakan kualitas</span></div>
+            <div class="trust-note"><span class="trust-check" aria-hidden="true">✓</span><span id="hero-proof">A thoughtful experience, trusted by our customers</span></div>
           </div>
           <div class="hero-visual" aria-hidden="true">
             <div class="visual-orbit orbit-one"></div>
@@ -48,24 +49,24 @@
             <div class="visual-sun"></div>
             <div class="visual-card">
               <span class="visual-card-icon">✳</span>
-              <span class="visual-card-label">DIBUAT UNTUKMU</span>
-              <strong>Ide baik,<br />hasil nyata.</strong>
+              <span class="visual-card-label" data-en="MADE WITH YOU IN MIND" data-id="DIBUAT UNTUKMU">MADE WITH YOU IN MIND</span>
+              <strong data-en="Good ideas,<br />real results." data-id="Ide baik,<br />hasil nyata.">Good ideas,<br />real results.</strong>
               <span class="visual-card-line"></span>
-              <span class="visual-card-foot">LANGKAH KECIL, DAMPAK BESAR</span>
+              <span class="visual-card-foot" data-en="SMALL STEPS, MEANINGFUL CHANGE" data-id="LANGKAH KECIL, DAMPAK BESAR">SMALL STEPS, MEANINGFUL CHANGE</span>
             </div>
-            <div class="floating-note"><span class="floating-check">✓</span><span><strong>Tanpa ribet</strong><small>Proses yang jelas</small></span></div>
+            <div class="floating-note"><span class="floating-check">✓</span><span><strong data-en="No fuss" data-id="Tanpa ribet">No fuss</strong><small data-en="A clear process" data-id="Proses yang jelas">A clear process</small></span></div>
             <span class="visual-spark spark-a">✦</span>
             <span class="visual-spark spark-b">✧</span>
           </div>
         </div>
-        <div class="hero-bottom container"><span>LAYANAN YANG BISA KAMU ANDALKAN</span><span class="hero-bottom-line"></span><span id="hero-location">MELAYANI DENGAN SEPENUH HATI</span></div>
+        <div class="hero-bottom container"><span data-en="HERE WHEN YOU NEED US" data-id="LAYANAN YANG BISA KAMU ANDALKAN">HERE WHEN YOU NEED US</span><span class="hero-bottom-line"></span><span id="hero-location">HERE TO HELP, EVERY STEP OF THE WAY</span></div>
       </section>
 
       <section class="section features-section" id="fitur">
         <div class="container">
           <div class="section-heading">
-            <div><p class="eyebrow">KENAPA MEMILIH KAMI</p><h2>Hal baik dimulai<br />dari <em>pilihan tepat.</em></h2></div>
-            <p class="section-intro">Kami percaya pengalaman terbaik datang dari perhatian pada hal-hal kecil. Inilah yang membuat layanan kami berbeda.</p>
+            <div><p class="eyebrow" data-en="WHY PEOPLE CHOOSE US" data-id="KENAPA MEMILIH KAMI">WHY PEOPLE CHOOSE US</p><h2 data-en="Good things start<br />with the <em>right choice.</em>" data-id="Hal baik dimulai<br />dari <em>pilihan tepat.</em>">Good things start<br />with the <em>right choice.</em></h2></div>
+            <p class="section-intro" data-en="We believe a great experience comes from caring about the little things. Here’s what makes us different." data-id="Kami percaya pengalaman terbaik datang dari perhatian pada hal-hal kecil. Inilah yang membuat layanan kami berbeda.">We believe a great experience comes from caring about the little things. Here’s what makes us different.</p>
           </div>
           <div class="feature-grid" id="feature-list"></div>
         </div>
@@ -74,8 +75,8 @@
       <section class="section services-section" id="layanan">
         <div class="container">
           <div class="section-heading centered-heading">
-            <div><p class="eyebrow">APA YANG KAMI TAWARKAN</p><h2>Layanan untuk setiap <em>kebutuhan.</em></h2></div>
-            <p class="section-intro">Pilih bantuan yang paling sesuai. Kami siap menemani dari awal hingga selesai.</p>
+            <div><p class="eyebrow" data-en="WHAT WE OFFER" data-id="APA YANG KAMI TAWARKAN">WHAT WE OFFER</p><h2 data-en="Support for every <em>need.</em>" data-id="Layanan untuk setiap <em>kebutuhan.</em>">Support for every <em>need.</em></h2></div>
+            <p class="section-intro" data-en="Choose the support that fits. We’re here to help from the first step to the finish." data-id="Pilih bantuan yang paling sesuai. Kami siap menemani dari awal hingga selesai.">Choose the support that fits. We’re here to help from the first step to the finish.</p>
           </div>
           <div class="service-grid" id="service-list"></div>
         </div>
@@ -84,19 +85,19 @@
       <section class="section pricing-section" id="harga">
         <div class="container">
           <div class="section-heading pricing-heading">
-            <div><p class="eyebrow">PILIH PAKETMU</p><h2>Jelas harganya,<br /><em>nyaman pilihnya.</em></h2></div>
-            <p class="section-intro">Tanpa biaya tersembunyi. Pilih paket yang paling pas untuk kebutuhan dan rencanamu.</p>
+            <div><p class="eyebrow" data-en="PICK YOUR PLAN" data-id="PILIH PAKETMU">PICK YOUR PLAN</p><h2 data-en="Clear pricing,<br /><em>easy choosing.</em>" data-id="Jelas harganya,<br /><em>nyaman pilihnya.</em>">Clear pricing,<br /><em>easy choosing.</em></h2></div>
+            <p class="section-intro" data-en="No hidden fees. Find the plan that feels right for your needs and goals." data-id="Tanpa biaya tersembunyi. Pilih paket yang paling pas untuk kebutuhan dan rencanamu.">No hidden fees. Find the plan that feels right for your needs and goals.</p>
           </div>
           <div class="pricing-grid" id="package-list"></div>
-          <p class="pricing-note">Butuh sesuatu yang berbeda? <a href="#kontak">Ceritakan kebutuhanmu <span aria-hidden="true">↗</span></a></p>
+          <p class="pricing-note"><span data-en="Need something a little different?" data-id="Butuh sesuatu yang berbeda?">Need something a little different?</span> <a href="#kontak"><span data-en="Tell us what you need" data-id="Ceritakan kebutuhanmu">Tell us what you need</span> <span aria-hidden="true">↗</span></a></p>
         </div>
       </section>
 
       <section class="section testimonials-section" id="testimoni">
         <div class="container">
           <div class="section-heading">
-            <div><p class="eyebrow">CERITA PELANGGAN</p><h2>Bukan cuma kata <em>kami.</em></h2></div>
-            <div class="rating"><span aria-label="5 dari 5 bintang">★★★★★</span><small>Pengalaman yang berarti</small></div>
+            <div><p class="eyebrow" data-en="CUSTOMER STORIES" data-id="CERITA PELANGGAN">CUSTOMER STORIES</p><h2 data-en="Don’t just take <em>our word.</em>" data-id="Bukan cuma kata <em>kami.</em>">Don’t just take <em>our word.</em></h2></div>
+            <div class="rating"><span aria-label="5 out of 5 stars">★★★★★</span><small data-en="Thoughtful experiences, shared" data-id="Pengalaman yang berarti">Thoughtful experiences, shared</small></div>
           </div>
           <div class="testimonial-grid" id="testimonial-list"></div>
         </div>
@@ -105,10 +106,10 @@
       <section class="section faq-section" id="faq">
         <div class="container faq-layout">
           <div class="faq-intro">
-            <p class="eyebrow">ADA YANG INGIN DITANYAKAN?</p>
-            <h2>Jawaban untuk<br />rasa <em>penasaranmu.</em></h2>
-            <p>Belum menemukan jawaban yang kamu cari? Tim kami siap membantu.</p>
-            <a class="quiet-link" id="faq-contact-link" href="#kontak">Hubungi kami <span aria-hidden="true">↗</span></a>
+            <p class="eyebrow" data-en="A QUESTION ON YOUR MIND?" data-id="ADA YANG INGIN DITANYAKAN?">A QUESTION ON YOUR MIND?</p>
+            <h2 data-en="A few answers<br />to your <em>questions.</em>" data-id="Jawaban untuk<br />rasa <em>penasaranmu.</em>">A few answers<br />to your <em>questions.</em></h2>
+            <p data-en="Can’t find what you’re looking for? Our team is happy to help." data-id="Belum menemukan jawaban yang kamu cari? Tim kami siap membantu.">Can’t find what you’re looking for? Our team is happy to help.</p>
+            <a class="quiet-link" id="faq-contact-link" href="#kontak"><span data-en="Get in touch" data-id="Hubungi kami">Get in touch</span> <span aria-hidden="true">↗</span></a>
           </div>
           <div class="faq-list" id="faq-list"></div>
         </div>
@@ -117,17 +118,17 @@
       <section class="contact-section" id="kontak">
         <div class="container contact-layout">
           <div>
-            <p class="eyebrow">LANGKAH BERIKUTNYA DIMULAI DI SINI</p>
-            <h2>Siap mulai sesuatu<br />yang <em>lebih baik?</em></h2>
-            <p class="contact-description">Ceritakan kebutuhanmu. Kami akan bantu menemukan solusi yang tepat tanpa komitmen.</p>
-            <a class="button button-light" id="contact-cta" href="https://wa.me/6281234567890">Ngobrol dengan kami <span aria-hidden="true">↗</span></a>
+            <p class="eyebrow" data-en="YOUR NEXT STEP STARTS HERE" data-id="LANGKAH BERIKUTNYA DIMULAI DI SINI">YOUR NEXT STEP STARTS HERE</p>
+            <h2 data-en="Ready for something<br /><em>better?</em>" data-id="Siap mulai sesuatu<br />yang <em>lebih baik?</em>">Ready for something<br /><em>better?</em></h2>
+            <p class="contact-description" data-en="Tell us what you need. We’ll help find the right solution, with no pressure." data-id="Ceritakan kebutuhanmu. Kami akan bantu menemukan solusi yang tepat tanpa komitmen.">Tell us what you need. We’ll help find the right solution, with no pressure.</p>
+            <a class="button button-light" id="contact-cta" href="https://wa.me/6281234567890"><span id="contact-cta-label">Talk with our team</span> <span aria-hidden="true">↗</span></a>
           </div>
           <div class="contact-card">
-            <span class="contact-card-label">KAMI SIAP MEMBANTU</span>
-            <a class="contact-method" id="contact-whatsapp" href="https://wa.me/6281234567890"><span class="contact-method-icon" aria-hidden="true">↗</span><span><small>WhatsApp</small><strong id="contact-phone">+62 812-3456-7890</strong></span></a>
-            <a class="contact-method" id="contact-email-link" href="mailto:halo@namabisnis.id"><span class="contact-method-icon" aria-hidden="true">✉</span><span><small>Email</small><strong id="contact-email">halo@namabisnis.id</strong></span></a>
-            <div class="contact-method contact-address"><span class="contact-method-icon" aria-hidden="true">⌖</span><span><small>Lokasi</small><strong id="contact-address">Jakarta, Indonesia</strong></span></div>
-            <div class="contact-card-footer"><span class="contact-live-dot"></span> Biasanya membalas dalam satu hari kerja</div>
+            <span class="contact-card-label" data-en="HERE WHEN YOU NEED US" data-id="KAMI SIAP MEMBANTU">HERE WHEN YOU NEED US</span>
+            <a class="contact-method" id="contact-whatsapp" href="https://wa.me/6281234567890"><span class="contact-method-icon" aria-hidden="true">↗</span><span><small data-en="WhatsApp" data-id="WhatsApp">WhatsApp</small><strong id="contact-phone">+62 812-3456-7890</strong></span></a>
+            <a class="contact-method" id="contact-email-link" href="mailto:halo@namabisnis.id"><span class="contact-method-icon" aria-hidden="true">✉</span><span><small data-en="Email" data-id="Email">Email</small><strong id="contact-email">halo@namabisnis.id</strong></span></a>
+            <div class="contact-method contact-address"><span class="contact-method-icon" aria-hidden="true">⌖</span><span><small data-en="Location" data-id="Lokasi">Location</small><strong id="contact-address">Jakarta, Indonesia</strong></span></div>
+            <div class="contact-card-footer"><span class="contact-live-dot"></span> <span data-en="We usually reply within one business day" data-id="Biasanya membalas dalam satu hari kerja">We usually reply within one business day</span></div>
           </div>
         </div>
         <div class="contact-decoration" aria-hidden="true">✳</div>
@@ -136,11 +137,11 @@
 
     <footer class="site-footer">
       <div class="container footer-main">
-        <a class="brand footer-brand" href="#beranda"><span class="brand-symbol" aria-hidden="true">✳</span><span data-business="name">Nama Usaha</span></a>
-        <p id="footer-tagline">Layanan yang terasa lebih personal.</p>
-        <a class="footer-top" href="#beranda">KEMBALI KE ATAS ↑</a>
+        <a class="brand footer-brand" href="#beranda"><span class="brand-symbol" aria-hidden="true">✳</span><span data-business="name">Ruang Tumbuh</span></a>
+        <p id="footer-tagline">Services that feel more personal.</p>
+        <a class="footer-top" href="#beranda" data-en="BACK TO TOP ↑" data-id="KEMBALI KE ATAS ↑">BACK TO TOP ↑</a>
       </div>
-      <div class="container footer-bottom"><span>© <span id="current-year"></span> <span data-business="name">Nama Usaha</span>. Hak cipta dilindungi.</span><span>Dibuat dengan sepenuh hati.</span></div>
+      <div class="container footer-bottom"><span>© <span id="current-year"></span> <span data-business="name">Ruang Tumbuh</span>. <span data-en="All rights reserved." data-id="Hak cipta dilindungi.">All rights reserved.</span></span><span data-en="Made with care." data-id="Dibuat dengan sepenuh hati.">Made with care.</span></div>
     </footer>
   </body>
 </html>

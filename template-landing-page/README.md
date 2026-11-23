@@ -1,28 +1,29 @@
-# Template Landing Page Universal
+# Universal Landing Page Template
 
-Landing page statis yang responsif untuk berbagai jenis usaha. Tidak membutuhkan framework, proses build, atau aset gambar eksternal.
+A responsive static landing page for many kinds of businesses. It needs no framework, build step, or external image assets. The page defaults to English and includes an English/Indonesian toggle.
 
-## Cara pakai
+## Getting started
 
-1. Buka `script.js`.
-2. Edit objek `BUSINESS_CONFIG` di bagian paling atas untuk mengganti nama usaha, deskripsi, warna, kontak, layanan, paket/harga, testimoni, dan FAQ.
-3. Simpan ketiga file dalam satu folder dan buka `index.html` di browser.
-4. Unggah file ke hosting statis untuk menerbitkan halaman.
+1. Open `script.js`.
+2. Edit the `BUSINESS_CONFIG` object at the top to customize the business name, colors, contact details, services, packages, testimonials, FAQs, and page copy.
+3. Provide both `en` and `id` text for each translatable item.
+4. Keep all three files together and open `index.html` in a browser.
+5. Upload the files to static hosting to publish the page.
 
-### Pengaturan penting
+### Configuration notes
 
-- `name` dan `tagline`: nama dan pesan singkat usaha.
-- `colors`: warna tema dalam format hex (`#rrggbb`).
-- `hero`: judul, deskripsi, teks tombol, dan pesan utama.
-- `contact`: nomor WhatsApp format internasional tanpa tanda `+` (contoh `6281234567890`), nomor tampilan, email, dan lokasi.
-- `features`, `services`, `testimonials`, dan `faqs`: tambah, hapus, atau ubah item dalam daftar.
-- `packages`: isi tepat tiga paket untuk tampilan harga; `price` berupa angka tanpa pemisah ribuan, `features` adalah daftar manfaat, dan `popular` menentukan paket yang ditonjolkan.
-- `currency` dan `locale`: format harga, misalnya `IDR` dan `id-ID`.
+- `name` is the business name and remains the same in both languages.
+- `colors` uses hex values such as `#55725c`.
+- `hero`, `contact`, and `tagline` contain English and Indonesian text.
+- `features`, `services`, `testimonials`, and `faqs` are editable lists. Each piece of copy has `en` and `id` values.
+- `packages` controls the three pricing cards. Set `price` to a number without thousands separators, provide bilingual `name`, `description`, `period`, `features`, and `button` text, and set `popular` to highlight a package.
+- Keep `currency` and `locale` in sync with the intended price format, for example `IDR` and `id-ID`.
+- Set the WhatsApp number in international format without a leading `+`, for example `6281234567890`. Package and contact links are generated from this number, with a message in the active language.
 
-Tautan tombol paket dan kontak akan dibuat otomatis dari nomor WhatsApp di konfigurasi. Pastikan nomor, harga, testimoni, dan informasi usaha sudah diganti sebelum halaman dipublikasikan.
+Review the business name, contact details, prices, testimonials, and copy before publishing.
 
-## Berkas
+## Files
 
-- `index.html` — struktur dan konten halaman.
-- `style.css` — tema, tata letak, dan breakpoint responsif.
-- `script.js` — konfigurasi usaha, pembuatan konten dinamis, format harga, dan interaksi menu mobile.
+- `index.html` — page structure and bilingual static copy.
+- `style.css` — theme, layout, and responsive breakpoints.
+- `script.js` — business configuration, dynamic content, localized prices, language toggle, and mobile navigation.

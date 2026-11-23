@@ -31,6 +31,8 @@ button { font: inherit; }
 .button { display: inline-flex; align-items: center; justify-content: center; gap: 16px; padding: 15px 20px; background: var(--rust); color: #fffaf3; border: 1px solid var(--rust); font-size: 12px; font-weight: 700; letter-spacing: .01em; transition: background .2s, transform .2s; }
 .button:hover { background: var(--rust-dark); transform: translateY(-2px); }
 .button-small { padding: 11px 15px; }
+.language-toggle { padding: 8px 9px; border: 1px solid var(--line); background: transparent; color: var(--ink); cursor: pointer; font-size: 10px; font-weight: 700; }
+.language-toggle:hover { border-color: var(--rust); color: var(--rust); }
 .menu-toggle { display: none; }
 
 .hero { position: relative; overflow: hidden; min-height: 610px; padding: 78px 0 90px; }
@@ -169,6 +171,7 @@ h2 { margin-bottom: 0; font-size: clamp(39px, 4.5vw, 56px); line-height: 1.1; }
   .nav-links { position: absolute; top: 68px; right: 0; left: 0; display: none; flex-direction: column; align-items: stretch; gap: 0; padding: 10px 20px 20px; border-bottom: 1px solid var(--line); background: var(--paper); }
   .nav-links.is-open { display: flex; }
   .nav-links > a:not(.button) { padding: 14px 0; border-bottom: 1px solid var(--line); }
+  .nav-links .language-toggle { align-self: flex-start; margin-top: 11px; }
   .nav-links .button { margin-top: 15px; }
   .hero { min-height: 0; padding: 61px 0 74px; }
   .hero-inner { grid-template-columns: 1fr; gap: 38px; }
