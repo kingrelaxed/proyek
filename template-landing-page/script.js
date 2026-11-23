@@ -89,6 +89,9 @@ const BUSINESS_CONFIG = {
         id: "Tim ramah kami siap mendengarkan dan membantu kapan dibutuhkan.",
       },
     },
+
+  { icon: "◍", title: { en: "Clear pricing", id: "Harga transparan" }, description: { en: "No hidden fees, ever. What you see is what you pay.", id: "Tanpa biaya tersembunyi. Yang kamu lihat, itulah yang kamu bayar." } },
+  { icon: "⏱", title: { en: "Fast turnaround", id: "Proses cepat" }, description: { en: "Most projects are ready in days, not weeks.", id: "Kebanyakan proyek siap dalam hitungan hari, bukan minggu." } },
   ],
   services: [
     {
@@ -115,6 +118,8 @@ const BUSINESS_CONFIG = {
         id: "Dukungan berkelanjutan agar setiap langkah terasa lebih mudah.",
       },
     },
+
+  { icon: "✦", title: { en: "Ongoing support", id: "Dukungan berkelanjutan" }, description: { en: "Help after launch, whenever you need it.", id: "Bantuan setelah peluncuran, kapan pun kamu butuh." } },
   ],
   packages: [
     {
@@ -193,6 +198,9 @@ const BUSINESS_CONFIG = {
       name: "Salsa Maharani",
       detail: { en: "Customer since 2024", id: "Pelanggan sejak 2024" },
     },
+
+  { quote: { en: "The process was so clear from day one. I always knew what was happening.", id: "Prosesnya sangat jelas sejak hari pertama. Saya selalu tahu apa yang sedang terjadi." }, name: "Rina W.", detail: { en: "Small business owner", id: "Pemilik usaha kecil" } },
+  { quote: { en: "Worth every rupiah. Our page finally looks as good as our work.", id: "Sangat sepadan. Halaman kami akhirnya terlihat sebagus pekerjaan kami." }, name: "Dedi S.", detail: { en: "Freelancer", id: "Pekerja lepas" } },
   ],
   faqs: [
     {
@@ -275,6 +283,9 @@ const BUSINESS_CONFIG = {
         id: "Bisa. Lihat portofolio kami di bawah, atau minta contoh di bidangmu.",
       },
     },
+
+  { question: { en: "What do you need from me to start?", id: "Apa yang kamu butuhkan dari saya untuk memulai?" }, answer: { en: "Just a short chat about your goals. We handle the rest.", id: "Cukup obrolan singkat tentang tujuanmu. Sisanya kami yang urus." } },
+  { question: { en: "Can I use my own domain?", id: "Bisakah saya memakai domain sendiri?" }, answer: { en: "Yes. We will help you connect it, step by step.", id: "Bisa. Kami bantu menghubungkannya, langkah demi langkah." } },
   ],
  process: [
     {
@@ -365,6 +376,9 @@ const BUSINESS_CONFIG = {
         id: "Rumah online yang profesional untuk tim yang sedang tumbuh.",
       },
     },
+
+  { icon: "▥", title: { en: "A warm menu for a family restaurant", id: "Menu hangat untuk restoran keluarga" }, category: { en: "Menu page", id: "Halaman menu" }, description: { en: "Dishes, prices, and opening hours in one calm page.", id: "Hidangan, harga, dan jam buka dalam satu halaman yang tenang." } },
+  { icon: "▧", title: { en: "Class times for a yoga studio", id: "Jadwal kelas untuk studio yoga" }, category: { en: "Class page", id: "Halaman kelas" }, description: { en: "Schedules, teachers, and booking in a soft, simple layout.", id: "Jadwal, pengajar, dan booking dalam tata letak yang lembut dan sederhana." } },
 ],
  comparison: [
     {
@@ -403,6 +417,9 @@ const BUSINESS_CONFIG = {
       label: { en: "Priority support", id: "Dukungan prioritas" },
       values: [false, false, true],
     },
+
+  { label: { en: "Free updates for 30 days", id: "Update gratis 30 hari" }, values: [false, true, true] },
+  { label: { en: "Dedicated manager", id: "Manajer khusus" }, values: [false, false, true] },
 ],
 };
 
@@ -698,6 +715,7 @@ function setLanguage(language) {
  renderComparison();
   renderTestimonials();
   renderFaqs();
+ if (window.applyReveals) window.applyReveals();
 
   document.querySelectorAll("[data-en][data-id]").forEach((element) => {
     element.innerHTML = element.dataset[language];
@@ -750,3 +768,33 @@ document.querySelector("#language-toggle").addEventListener("click", () => {
 
 setLanguage("en");
 setupMobileMenu();
+
+/* Premium motion: scroll reveal + header shadow */
+(function () {
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var header = document.querySelector("header.site-header");
+  function onScroll() { if (header) header.classList.toggle("scrolled", window.scrollY > 24); }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+  if (reduceMotion || !("IntersectionObserver" in window)) return;
+  document.documentElement.classList.add("js-reveal");
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) { entry.target.classList.add("is-visible"); entry.target.style.transitionDelay = ""; observer.unobserve(entry.target); }
+    });
+  }, { threshold: 0.12, rootMargin: "0px 0px -48px 0px" });
+  window.applyReveals = function () {
+    document.querySelectorAll("main section").forEach(function (s, idx) { if (idx > 0) s.classList.add("reveal"); });
+    document.querySelectorAll(".service-card, .testimonial-card, .quote-card, .gallery-tile, .step-card, .feature-card, .package-card, .portfolio-card, .process-card, .lookbook-card, .product-card, .shipping-item, .faq-item").forEach(function (c) { c.classList.add("reveal"); });
+    document.querySelectorAll(".reveal:not(.is-visible)").forEach(function (el) {
+      var p = el.parentElement;
+      if (p && /grid|list/.test(p.className)) {
+        var kids = Array.prototype.filter.call(p.children, function (c) { return c.classList.contains("reveal"); });
+        var i = kids.indexOf(el);
+        if (i > 0 && i < 6) el.style.transitionDelay = (i * 70) + "ms";
+      }
+      observer.observe(el);
+    });
+  };
+  window.applyReveals();
+})();
