@@ -207,3 +207,43 @@ h2 { font-size: clamp(38px, 4.5vw, 53px); line-height: 1.08; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
 }
+/* Premium motion system (shared) */
+html{scroll-behavior:smooth}
+header.site-header.scrolled{box-shadow:0 10px 30px rgba(20,16,12,.14)}
+html.js-reveal .reveal{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.22,1,.36,1),transform .8s cubic-bezier(.22,1,.36,1)}
+html.js-reveal .reveal.is-visible{opacity:1;transform:none}
+@keyframes heroUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+@keyframes heroArtIn{from{opacity:0;transform:translateY(18px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.hero-copy > *{animation:heroUp .8s cubic-bezier(.22,1,.36,1) both}
+.hero-copy > *:nth-child(2){animation-delay:.08s}
+.hero-copy > *:nth-child(3){animation-delay:.16s}
+.hero-copy > *:nth-child(4){animation-delay:.24s}
+.hero-copy > *:nth-child(5){animation-delay:.32s}
+.hero-art,.hero-visual{animation:heroArtIn 1s cubic-bezier(.22,1,.36,1) .15s both}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}html.js-reveal .reveal{opacity:1;transform:none;transition:none}.hero-copy > *,.hero-art,.hero-visual{animation:none}}
+html.js-reveal .reveal.is-visible{transition:opacity .8s cubic-bezier(.22,1,.36,1),transform .35s ease,background-color .3s ease,box-shadow .35s ease,border-color .3s ease}
+
+.hero { background: radial-gradient(700px 320px at 88% -10%, rgba(230,189,119,0.28), transparent 60%), radial-gradient(600px 300px at -8% 108%, rgba(88,119,105,0.22), transparent 60%), linear-gradient(160deg, #eef6f0, #f5f4ee); }
+.hero h1 { font-size: clamp(2.8rem, 6.4vw, 4.4rem); line-height: 1.05; }
+.hero h1 em { background: linear-gradient(100deg, #587769, #3f7d5a, #e6bd77); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.hero-art::after { content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none; background: radial-gradient(circle 14px at 18% 22%, rgba(255,255,255,0.9), rgba(255,255,255,0.2) 70%, transparent 71%),
+radial-gradient(circle 9px at 84% 30%, rgba(255,255,255,0.9), rgba(255,255,255,0.2) 70%, transparent 71%), radial-gradient(circle 12px at 72% 80%, rgba(255,255,255,0.85), rgba(255,255,255,0.2) 70%, transparent 71%), radial-gradient(circle 7px at 28% 84%, rgba(255,255,255,0.9), rgba(255,255,255,0.2) 70%, transparent 71%); animation: floatY 7s ease-in-out infinite; }
+@keyframes floatBasket { 0%, 100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(-8px); } }
+@keyframes floatSock { 0%, 100% { transform: rotate(20deg) translateY(0); } 50% { transform: rotate(20deg) translateY(-8px); } }
+.laundry-basket { animation: floatBasket 6s ease-in-out infinite; }
+.floating-sock { animation: floatSock 5s ease-in-out 1s infinite; }
+.art-sun { animation: floatY 6s ease-in-out infinite; }
+.art-cloud { animation: floatY 8s ease-in-out 1.5s infinite; }
+.fresh-note { animation: floatY 5.5s ease-in-out 0.6s infinite; }
+.art-sparkle { animation: floatY 4.5s ease-in-out infinite; }
+.section-heading h2::after { content: ""; display: block; width: 56px; height: 4px; margin-top: 14px; background: linear-gradient(90deg, var(--green), #e6bd77); border-radius: 2px; }
+.service-card, .testimonial-card, .step-card { transition: transform 0.35s ease, box-shadow 0.35s ease; }
+.service-card:hover, .testimonial-card:hover, .step-card:hover { transform: translateY(-4px); box-shadow: 0 16px 34px rgba(41,49,46,0.14); }
+.service-icon { transition: transform 0.35s ease; }
+.service-card:hover .service-icon { transform: scale(1.15); }
+.neighborhoods span { transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, transform 0.3s ease; }
+.neighborhoods span:hover { background: var(--green); color: #fff; border-color: var(--green); transform: translateY(-2px); }
+.button { box-shadow: 0 10px 24px rgba(88,119,105,0.35); }
+.button:hover { transform: translateY(-2px); }
+@media (max-width: 700px) {.hero h1 { font-size: clamp(2.4rem, 10vw, 3rem);}}
